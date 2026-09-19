@@ -1,5 +1,6 @@
 import SEO from '../components/common/SEO.jsx';
 import HomeHero from '../components/home/HomeHero.jsx';
+import HomeProducts from '../components/home/HomeProducts.jsx';
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
         description="A modern React implementation for Mark Speciality's automotive, industrial, grease, and specialty lubricant solutions."
       />
       <HomeHero />
+      <HomeProducts />
     </>
   );
 }
