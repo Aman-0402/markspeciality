@@ -6,7 +6,7 @@ Mark Speciality React Website
 
 ## Current Status
 
-Phase 7 Industries We Serve section completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, modular styling foundations, responsive navigation, a polished homepage hero, a product category section, a feature/value proposition section, and an industries section.
+Phase 8 CTA & Footer completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, modular styling foundations, responsive navigation, a polished homepage hero, a product category section, a feature/value proposition section, an industries section, a reusable consultation CTA, and a site-wide footer with back-to-top control.
 
 ## Progress
 
@@ -451,3 +451,62 @@ Next:
 * Review diff.
 * Commit and push Phase 7.
 * Start Phase 8 after user approval.
+
+### [2026-09-19 21] Update #008
+
+Status:
+Completed
+
+Work Completed:
+
+* Created a reusable `CTASection` component for the "Request Free Consultation" call-to-action, used on the homepage after Industries.
+* Created a `Footer` component with brand block, social links, Quick Links, Products links, contact details (opening hours, phone, email), and legal links.
+* Created a `BackToTop` floating button using the existing scroll-state hook, revealed after scrolling past 480px.
+* Added `socialLinks` data to `src/data/contact.js`.
+* Added `/privacy-policy` and `/terms` routes rendered via the existing `PlaceholderPage` component so footer legal links are not dead links.
+* Added `footer.css` covering the CTA section, footer grid, social icons, legal row, and back-to-top button, including responsive breakpoints and reduced-motion handling.
+* Wired `Footer` and `BackToTop` into `MainLayout` so they render on every route.
+* Replaced planned brand icon usage (Facebook/LinkedIn/Twitter) with initial-letter badges after discovering the installed `lucide-react` version no longer exports brand icons; avoids a broken build.
+
+Files Created:
+
+* `src/components/common/BackToTop.jsx`
+* `src/components/common/CTASection.jsx`
+* `src/components/layout/Footer.jsx`
+* `src/styles/footer.css`
+
+Files Modified:
+
+* `AGENT.md`
+* `README.md`
+* `src/App.jsx`
+* `src/components/layout/MainLayout.jsx`
+* `src/data/contact.js`
+* `src/pages/Home.jsx`
+* `src/styles/global.css`
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None
+
+Reason:
+Implement the required reusable consultation CTA and site footer (quick links, product links, contact info, opening hours, social links, copyright, legal links, back-to-top) so every page has consistent closing content and navigation.
+
+Testing:
+
+* `npm run lint` passed.
+* `npm run build` passed (after fixing missing lucide-react brand icon exports).
+* Responsive check pending for later visual QA phase.
+
+Git Commit:
+`pending`
+
+Next:
+
+* Review diff.
+* Commit and push Phase 8.
+* Start Phase 9 after user approval.

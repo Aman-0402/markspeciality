@@ -1,3 +1,4 @@
+import CTASection from '../components/common/CTASection.jsx';
 import SEO from '../components/common/SEO.jsx';
 import HomeHero from '../components/home/HomeHero.jsx';
 import HomeProducts from '../components/home/HomeProducts.jsx';
@@ -15,6 +16,7 @@ export default function Home() {
       <HomeProducts />
       <WhyChooseUs />
       <Industries />
+      <CTASection />
     </>
   );
 }

@@ -13,6 +13,7 @@ const Blog = lazy(() => import('./pages/Blog.jsx'));
 const BlogDetail = lazy(() => import('./pages/BlogDetail.jsx'));
 const Contact = lazy(() => import('./pages/Contact.jsx'));
 const NotFound = lazy(() => import('./pages/NotFound.jsx'));
+const PlaceholderPage = lazy(() => import('./pages/PlaceholderPage.jsx'));
 
 export default function App() {
   return (
@@ -29,6 +30,26 @@ export default function App() {
             <Route path="blog" element={<Blog />} />
             <Route path="blog/:slug" element={<BlogDetail />} />
             <Route path="contact" element={<Contact />} />
+            <Route
+              path="privacy-policy"
+              element={
+                <PlaceholderPage
+                  title="Privacy Policy"
+                  description="Our privacy policy is being finalized. Please contact us directly with any data privacy questions."
+                  path="/privacy-policy"
+                />
+              }
+            />
+            <Route
+              path="terms"
+              element={
+                <PlaceholderPage
+                  title="Terms & Conditions"
+                  description="Our terms and conditions are being finalized. Please contact us directly with any questions."
+                  path="/terms"
+                />
+              }
+            />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

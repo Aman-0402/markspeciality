@@ -8,3 +8,9 @@ export const contactInfo = {
   fax: '+91 22 2538 1446',
   website: 'https://markspeciality.com/',
 };
+
+export const socialLinks = [
+  { label: 'LinkedIn', href: '#', icon: 'linkedin' },
+  { label: 'Facebook', href: '#', icon: 'facebook' },
+  { label: 'Twitter', href: '#', icon: 'twitter' },
+];
