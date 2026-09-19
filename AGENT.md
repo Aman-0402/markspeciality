@@ -6,7 +6,7 @@ Mark Speciality React Website
 
 ## Current Status
 
-Phase 3 header and navigation completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, modular styling foundations, and responsive navigation.
+Phase 4 home hero completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, modular styling foundations, responsive navigation, and a polished homepage hero.
 
 ## Progress
 
@@ -218,3 +218,63 @@ Next:
 
 * Review diff.
 * Commit and push Phase 3.
+
+### [2026-09-19 21] Update #004
+
+Status:
+Completed
+
+Work Completed:
+
+* Generated a project-local industrial hero background image using the built-in image generation workflow.
+* Saved the generated hero asset under `src/assets/images/`.
+* Created a dedicated `HomeHero` component for the homepage.
+* Added premium hero messaging, supporting copy, primary and secondary CTAs, proof points, and trust statistics.
+* Added Framer Motion entrance animation for the hero content and proof panel.
+* Added responsive hero styling with image overlay, copy-safe contrast, mobile adjustments, and local image usage.
+* Updated the home page to render the new hero component.
+* Updated README documentation to mention the hero foundation.
+
+Files Created:
+
+* `src/assets/images/home-hero-industrial.png`
+* `src/components/home/HomeHero.jsx`
+* `src/styles/home.css`
+
+Files Modified:
+
+* `AGENT.md`
+* `README.md`
+* `src/pages/Home.jsx`
+* `src/styles/global.css`
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None
+
+Reason:
+Implement the required homepage hero with an industrial visual, strong messaging, CTAs, responsive behavior, and restrained animation.
+
+Testing:
+
+* `npm run lint` passed.
+* `npm run build` passed.
+* Local generated PNG verified visually.
+* Responsive check pending for later visual QA phases.
+
+Git Commit:
+`pending`
+
+Next:
+
+* Review diff.
+* Commit and push Phase 4.
+* Start Phase 5 after user approval.
+
+Notes:
+
+* `home-hero-industrial.png` is approximately 1.9 MB and should be optimized during the performance optimization phase.
