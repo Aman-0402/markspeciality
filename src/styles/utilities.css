@@ -70,13 +70,6 @@
 }
 
 @media (max-width: 640px) {
-  .site-placeholder-header__inner {
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: center;
-    padding-block: var(--space-4);
-  }
-
   .button,
   .button-secondary,
   .button-ghost {

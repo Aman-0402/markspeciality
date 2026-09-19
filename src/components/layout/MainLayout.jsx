@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom';
+import Header from './Header.jsx';
 
 export default function MainLayout() {
   return (
@@ -6,14 +7,7 @@ export default function MainLayout() {
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
-      <header className="site-placeholder-header">
-        <div className="container site-placeholder-header__inner">
-          <span className="site-logo">Mark Speciality</span>
-          <span className="site-placeholder-header__note">
-            Navigation arrives in Phase 3
-          </span>
-        </div>
-      </header>
+      <Header />
       <main id="main-content">
         <Outlet />
       </main>

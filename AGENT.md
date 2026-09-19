@@ -6,7 +6,7 @@ Mark Speciality React Website
 
 ## Current Status
 
-Phase 2 design system completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, and modular styling foundations.
+Phase 3 header and navigation completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, modular styling foundations, and responsive navigation.
 
 ## Progress
 
@@ -158,3 +158,63 @@ Next:
 * Run validation.
 * Review diff.
 * Commit and push Phase 2.
+
+### [2026-09-19 21] Update #003
+
+Status:
+Completed
+
+Work Completed:
+
+* Replaced the temporary placeholder header with a responsive site header.
+* Added a slim top information bar with opening hours, email, and phone links.
+* Added desktop navigation with active route indicators and hover underline animation.
+* Added an accessible Products dropdown with product category links, animated reveal, click-outside handling, and ESC-to-close behavior.
+* Added sticky header scroll styling with compressed height and shadow/background transition.
+* Added a mobile hamburger menu with drawer panel, backdrop close behavior, and Products accordion.
+* Added mobile menu close behavior, body scroll locking, and responsive top bar simplification.
+* Added a reusable scroll-state hook for sticky header styling.
+* Added navigation-specific CSS and removed obsolete placeholder-header styling.
+* Fixed React lint feedback by moving synchronous menu state changes out of effects.
+
+Files Created:
+
+* `src/components/layout/Header.jsx`
+* `src/components/layout/MobileMenu.jsx`
+* `src/components/layout/TopBar.jsx`
+* `src/hooks/useScrollState.js`
+* `src/styles/navigation.css`
+
+Files Modified:
+
+* `AGENT.md`
+* `src/components/layout/MainLayout.jsx`
+* `src/data/contact.js`
+* `src/styles/base.css`
+* `src/styles/global.css`
+* `src/styles/utilities.css`
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None
+
+Reason:
+Build the production navigation foundation required for all pages before the homepage hero and content sections are implemented.
+
+Testing:
+
+* `npm run lint` passed after addressing React hook lint feedback.
+* `npm run build` passed.
+* Responsive check pending for later visual QA phases.
+
+Git Commit:
+`pending`
+
+Next:
+
+* Review diff.
+* Commit and push Phase 3.

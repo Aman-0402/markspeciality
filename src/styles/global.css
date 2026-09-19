@@ -2,5 +2,6 @@
 @import './reset.css';
 @import './base.css';
 @import './components.css';
+@import './navigation.css';
 @import './utilities.css';
 @import './animations.css';
