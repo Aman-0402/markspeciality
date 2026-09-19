@@ -14,6 +14,8 @@ export const productCategories = [
     imageAlt:
       'Golden engine oil being poured into a modern vehicle engine in a service bay',
     category: 'Automotive',
+    tagline: 'Engineered for the road, mile after mile.',
+    accentColor: 'var(--color-gold-600)',
     benefits: ['Engine Protection', 'Fuel Efficiency', 'Smooth Performance'],
     applications: ['Engine oils', 'Transmission fluids', 'Gear oils'],
     features: ['Thermal stability', 'Wear control', 'Deposit protection'],
@@ -35,6 +37,8 @@ export const productCategories = [
     imageAlt:
       'Industrial gear and bearing assembly with golden lubricant on a manufacturing floor',
     category: 'Industrial',
+    tagline: 'Built to keep heavy machinery running without interruption.',
+    accentColor: 'var(--color-ink-700)',
     benefits: ['Reduced Wear', 'Longer Service Life', 'Equipment Reliability'],
     applications: ['Hydraulic systems', 'Gearboxes', 'Compressors'],
     features: ['Oxidation resistance', 'Load carrying', 'Corrosion control'],
@@ -56,6 +60,8 @@ export const productCategories = [
     imageAlt:
       'Specialty lubricant samples and metal test coupons arranged on a clean industrial lab bench',
     category: 'Specialty',
+    tagline: 'Purpose-built formulations for challenging, specific applications.',
+    accentColor: 'var(--color-safety-600)',
     benefits: ['Application-Specific', 'Performance Focused', 'Technical Support'],
     applications: ['Process oils', 'Metalworking fluids', 'Specialty fluids'],
     features: ['Custom formulation', 'Surface protection', 'Process compatibility'],
@@ -76,6 +82,8 @@ export const productCategories = [
     imageAlt:
       'Close-up of ball bearings and gears protected with amber industrial grease',
     category: 'Grease',
+    tagline: 'Long-lasting protection for bearings and moving components.',
+    accentColor: 'var(--color-steel-700)',
     benefits: ['Extreme Protection', 'Water Resistance', 'Stable Lubrication'],
     applications: ['Bearings', 'Chassis points', 'Heavy machinery'],
     features: ['Adhesion strength', 'Mechanical stability', 'Rust protection'],

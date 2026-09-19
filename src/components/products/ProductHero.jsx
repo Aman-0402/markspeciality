@@ -13,6 +13,7 @@ export default function ProductHero({ product, breadcrumbItems }) {
         >
           <p className="eyebrow">{product.category} Lubricants</p>
           <h1>{product.title}</h1>
+          {product.tagline ? <p className="product-hero__tagline">{product.tagline}</p> : null}
           <p className="lead">{product.description}</p>
         </motion.div>
       </div>

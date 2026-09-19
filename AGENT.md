@@ -6,7 +6,7 @@ Mark Speciality React Website
 
 ## Current Status
 
-Phase 10 Product System Architecture completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, modular styling foundations, responsive navigation, a polished homepage hero, a product category section, a feature/value proposition section, an industries section, a reusable consultation CTA, a site-wide footer with back-to-top control, a full About page, and a reusable, data-driven product overview page plus product category detail architecture (breadcrumbs, benefits, applications, performance advantages, industries served, related products).
+Phase 11 Product Category Pages completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, modular styling foundations, responsive navigation, a polished homepage hero, a product category section, a feature/value proposition section, an industries section, a reusable consultation CTA, a site-wide footer with back-to-top control, a full About page, and a reusable, data-driven product overview page plus fully working product category pages for all four categories, each with its own accent-color visual identity.
 
 ## Progress
 
@@ -620,3 +620,55 @@ Next:
 * Review diff.
 * Commit and push Phase 10.
 * Start Phase 11 after user approval.
+
+### [2026-09-19 22] Update #011
+
+Status:
+Completed
+
+Work Completed:
+
+* Added a `tagline` and `accentColor` (mapped to existing design tokens: gold for Automotive, ink-700 for Industrial, safety-600 for Specialty, steel-700 for Grease) to each of the four entries in `src/data/products.js`, giving each product category page its own visual identity while reusing the same shared template from Phase 10.
+* Updated `ProductCategory.jsx` to wrap the page in a `.product-category` container that sets a `--category-accent` CSS custom property from the product's `accentColor`.
+* Updated `ProductHero.jsx` to render the new tagline under the page title.
+* Added CSS: an accent top bar on the product hero, tagline styling, and accent-tinted benefit icons, feature check icons, and industries-served icons scoped under `.product-category` so each category reads as visually distinct without diverging from the shared design system.
+* Confirmed via `npm run build` that all four category chunks (`automotive-lubricants`, `industrial-lubricants`, `grease`, `specialty-products`) build correctly through the shared `ProductCategory` route.
+
+Files Modified:
+
+* `AGENT.md`
+* `README.md`
+* `src/components/products/ProductHero.jsx`
+* `src/data/products.js`
+* `src/pages/ProductCategory.jsx`
+* `src/styles/products.css`
+
+Files Created:
+
+* None
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None
+
+Reason:
+Give each of the four product category pages (Automotive Lubricants, Industrial Lubricants, Greases, Specialty Products) its own visual identity, as required, while keeping them consistent with the shared data-driven architecture built in Phase 10 rather than duplicating page code per category.
+
+Testing:
+
+* `npm run lint` passed.
+* `npm run build` passed.
+* Responsive check pending for later visual QA phase.
+
+Git Commit:
+`pending`
+
+Next:
+
+* Review diff.
+* Commit and push Phase 11.
+* Start Phase 12 after user approval.

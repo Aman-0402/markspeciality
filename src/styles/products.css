@@ -44,6 +44,38 @@
   color: var(--color-text-strong);
 }
 
+.product-hero {
+  position: relative;
+}
+
+.product-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: var(--category-accent, var(--color-accent));
+}
+
+.product-hero__tagline {
+  margin: var(--space-3) 0 0;
+  color: var(--color-gold-300);
+  font-weight: 750;
+  font-size: 1.05rem;
+}
+
+.product-category .product-overview__features svg {
+  color: var(--category-accent, var(--color-accent-strong));
+}
+
+.product-category .benefit-list__icon {
+  background: color-mix(in srgb, var(--category-accent, var(--color-accent-strong)) 14%, transparent);
+  color: var(--category-accent, var(--color-accent-strong));
+}
+
+.product-category .product-industries-grid__item svg {
+  color: var(--category-accent, var(--color-accent-strong));
+}
+
 .product-overview__copy {
   margin: var(--space-5) 0 var(--space-6);
   max-width: 760px;

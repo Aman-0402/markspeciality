@@ -28,7 +28,7 @@ export default function ProductCategory() {
   );
 
   return (
-    <>
+    <div className="product-category" style={{ '--category-accent': product.accentColor }}>
       <SEO
         title={`${product.title} | Mark Speciality`}
         description={product.description}
@@ -114,6 +114,6 @@ export default function ProductCategory() {
         title={`Talk To Us About ${product.title}`}
         copy="Our team can help you choose the right formulation, volume, and delivery schedule for your operation."
       />
-    </>
+    </div>
   );
 }
