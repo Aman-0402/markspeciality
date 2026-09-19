@@ -1074,3 +1074,53 @@ Next:
 * Review diff.
 * Commit and push Phase 18.
 * Report final project completion to the user.
+
+### [2026-09-19 23] Update #019
+
+Status:
+Fixed
+
+Work Completed:
+
+Performed a real browser-based visual and interaction audit using Playwright/headless Chromium (dev-only, not added to `package.json`) across every route at desktop and mobile viewports, since the project had never actually been opened in a browser before. Found and fixed two real, previously undetected bugs:
+
+* **Mobile navigation menu was clipped to the header's height and unusable.** `.site-header` has `backdrop-filter: blur(18px)`; per the CSS Filter Effects spec, an element with `backdrop-filter` becomes the containing block for any `position: fixed` descendant. `MobileMenu` (`position: fixed; inset: 0`) is rendered inside `<Header>`, so on every real browser that implements this spec (all current Chrome/Firefox/Safari), the "full-screen" mobile menu was actually being sized to the header's own ~108px box instead of the viewport, leaving the rest of the menu's links invisible behind the page content. Fixed by rendering `MobileMenu` through a React portal (`createPortal(..., document.body)`) so it is no longer a descendant of the filtered header and correctly fills the viewport. Confirmed via Playwright: menu now measures the full 390x844 viewport and all links/accordion are visible and usable.
+* **Clicking "Products" in the desktop nav did nothing (or immediately closed the dropdown).** The button had both `onMouseEnter={() => setProductsOpen(true)}` and `onClick={() => setProductsOpen((current) => !current)}`. Since a mouse click is always preceded by a hover, the hover already set `productsOpen` to `true`; the subsequent click then toggled it straight back to `false`, so the dropdown appeared to flash and close instantly on click. Fixed by making the click handler idempotently open the menu (`onClick={() => setProductsOpen(true)}`) instead of toggling it; closing is already handled by `onMouseLeave`, the outside-click listener, and Escape.
+
+Confirmed via the same browser audit that there are no broken images, no dead internal links, and no console errors on any of the 14 routes (checked at both 1440px and 390px viewports). An apparent "empty Why Choose Us / Industries section" symptom seen in an early, coarser test turned out to be a test-script artifact (`whileInView` reveal not settling during very fast programmatic scroll jumps), not a real bug — confirmed by reproducing the reveal correctly with a direct `scrollIntoView`, matching how a real user scrolls.
+
+Files Modified:
+
+* `AGENT.md`
+* `src/components/layout/Header.jsx`
+* `src/components/layout/MobileMenu.jsx`
+
+Files Created:
+
+* None
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None (Playwright was installed locally with `--no-save` purely to drive the audit; it was not added to `package.json`/`package-lock.json` and was not committed)
+
+Reason:
+The user asked for a real browser-based review of the site, specifically to check for broken behavior. Every previous phase had only been validated with `npm run build`/`npm run lint` and static code review, which cannot catch a CSS containing-block interaction like the `backdrop-filter` issue or a hover/click event-ordering bug like the dropdown issue. Both were shipping, user-facing breakages: the mobile menu (used by the majority of real-world traffic) was non-functional, and the desktop Products dropdown misbehaved on click.
+
+Testing:
+
+* `npm run lint` passed.
+* `npm run build` passed.
+* Reproduced both bugs against the dev server before fixing, and reproduced the fixes working (mobile nav measures full viewport; dropdown `aria-expanded` becomes and stays `true` after a click) before committing.
+
+Git Commit:
+`pending`
+
+Next:
+
+* Review diff.
+* Commit and push.
+* Continue with a visual-uniqueness/imagery pass on the About page and product category pages (repetitive card-row sections, no on-page photography) per the user's follow-up request.

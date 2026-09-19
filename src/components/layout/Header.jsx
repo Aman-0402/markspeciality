@@ -68,7 +68,7 @@ export default function Header() {
                       productsActive ? 'is-active' : ''
                     }`}
                     type="button"
-                    onClick={() => setProductsOpen((current) => !current)}
+                    onClick={() => setProductsOpen(true)}
                     onMouseEnter={() => setProductsOpen(true)}
                     aria-expanded={productsOpen}
                     aria-haspopup="true"

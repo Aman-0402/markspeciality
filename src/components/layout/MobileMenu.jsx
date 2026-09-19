@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { ChevronDown, X } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
@@ -58,7 +59,7 @@ export default function MobileMenu({
     return null;
   }
 
-  return (
+  return createPortal(
     <div className="mobile-nav" role="dialog" aria-modal="true" aria-label="Main menu">
       <button className="mobile-nav__backdrop" type="button" onClick={onClose}>
         <span className="sr-only">Close menu</span>
@@ -142,6 +143,7 @@ export default function MobileMenu({
           )}
         </nav>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
