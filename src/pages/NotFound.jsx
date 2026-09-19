@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import ButtonLink from '../components/common/ButtonLink.jsx';
 import SEO from '../components/common/SEO.jsx';
 
 export default function NotFound() {
@@ -17,9 +17,7 @@ export default function NotFound() {
             This route is ready for a polished custom error experience in later
             phases.
           </p>
-          <Link className="button" to="/">
-            Return Home
-          </Link>
+          <ButtonLink to="/">Return Home</ButtonLink>
         </div>
       </section>
     </>

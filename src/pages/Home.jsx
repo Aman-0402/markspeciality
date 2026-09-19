@@ -1,4 +1,5 @@
 import SEO from '../components/common/SEO.jsx';
+import ButtonLink from '../components/common/ButtonLink.jsx';
 
 export default function Home() {
   return (
@@ -15,6 +16,12 @@ export default function Home() {
             The project foundation is ready. Upcoming phases will add the full
             premium industrial website experience.
           </p>
+          <div className="cluster">
+            <ButtonLink to="/products">View All Products</ButtonLink>
+            <ButtonLink to="/contact" variant="ghost">
+              Request Consultation
+            </ButtonLink>
+          </div>
         </div>
       </section>
     </>

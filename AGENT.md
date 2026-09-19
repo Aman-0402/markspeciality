@@ -6,7 +6,7 @@ Mark Speciality React Website
 
 ## Current Status
 
-Phase 1 project setup completed. The repository now contains a Vite React application shell, route foundation, initial documentation, and validation tooling.
+Phase 2 design system completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, and modular styling foundations.
 
 ## Progress
 
@@ -95,6 +95,66 @@ Git Commit:
 
 Next:
 
+* Start Phase 2 after user approval.
+
+### [2026-09-19 20] Update #002
+
+Status:
+Completed
+
+Work Completed:
+
+* Split the starter stylesheet into a modular design-system architecture.
+* Added global color, typography, spacing, radius, shadow, gradient, z-index, and motion tokens.
+* Added reset and base styles for consistent rendering, typography, focus states, loading UI, and the temporary shell header.
+* Added reusable section, container, button, card, form, field, grid, stack, cluster, surface, and text utility classes.
+* Added animation primitives for fade-up reveals, loaders, and reduced-motion handling.
+* Added reusable `ButtonLink` and `SectionHeading` components.
+* Updated placeholder pages to use the new button system.
+* Updated README documentation to describe the design-system foundation.
+
+Files Created:
+
+* `src/components/common/ButtonLink.jsx`
+* `src/components/common/SectionHeading.jsx`
+* `src/styles/animations.css`
+* `src/styles/base.css`
+* `src/styles/components.css`
+* `src/styles/reset.css`
+* `src/styles/tokens.css`
+* `src/styles/utilities.css`
+
+Files Modified:
+
+* `AGENT.md`
+* `README.md`
+* `src/pages/Home.jsx`
+* `src/pages/NotFound.jsx`
+* `src/pages/PlaceholderPage.jsx`
+* `src/styles/global.css`
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None
+
+Reason:
+Create a reusable visual foundation before building navigation, hero, product cards, forms, and page-specific sections.
+
+Testing:
+
+* `npm run lint` passed.
+* `npm run build` passed.
+* Responsive check pending for later visual QA phases.
+
+Git Commit:
+`pending`
+
+Next:
+
 * Run validation.
 * Review diff.
-* Commit and push Phase 1.
+* Commit and push Phase 2.

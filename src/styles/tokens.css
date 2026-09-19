@@ -1,0 +1,100 @@
+:root {
+  color-scheme: light;
+
+  --font-heading:
+    Manrope, "Plus Jakarta Sans", Montserrat, Inter, ui-sans-serif, system-ui,
+    -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+
+  --color-ink-950: #071421;
+  --color-ink-900: #0b1f36;
+  --color-ink-800: #102b48;
+  --color-ink-700: #173d62;
+  --color-steel-700: #435368;
+  --color-steel-600: #596a7f;
+  --color-steel-500: #748196;
+  --color-steel-300: #c7d0db;
+  --color-steel-200: #dbe2ea;
+  --color-steel-100: #eef2f6;
+  --color-steel-50: #f7f9fb;
+  --color-metal-100: #ece8df;
+  --color-metal-200: #d8d0c2;
+  --color-gold-700: #9b5714;
+  --color-gold-600: #b96818;
+  --color-gold-500: #d3842a;
+  --color-gold-300: #f0b66e;
+  --color-safety-600: #d15427;
+  --color-success-600: #1e7a4f;
+  --color-danger-600: #ba2f2a;
+  --color-white: #ffffff;
+  --color-black: #05080c;
+
+  --color-primary: var(--color-ink-900);
+  --color-primary-strong: var(--color-ink-950);
+  --color-secondary: var(--color-ink-700);
+  --color-accent: var(--color-gold-600);
+  --color-accent-strong: var(--color-gold-700);
+  --color-background: var(--color-steel-50);
+  --color-surface: var(--color-white);
+  --color-surface-muted: var(--color-steel-100);
+  --color-text: #172235;
+  --color-text-strong: var(--color-ink-950);
+  --color-text-muted: var(--color-steel-600);
+  --color-border: var(--color-steel-200);
+  --color-focus: var(--color-gold-500);
+
+  --gradient-hero:
+    linear-gradient(135deg, rgba(7, 20, 33, 0.97), rgba(16, 43, 72, 0.9));
+  --gradient-accent:
+    linear-gradient(135deg, var(--color-gold-600), var(--color-safety-600));
+  --gradient-steel:
+    linear-gradient(145deg, #ffffff, #eef2f6 52%, #e4e9ef);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-28: 7rem;
+  --space-32: 8rem;
+
+  --container-xs: 42rem;
+  --container-sm: 56rem;
+  --container-md: 68rem;
+  --container-lg: 76rem;
+  --container-xl: 88rem;
+  --container-padding: clamp(1rem, 4vw, 2rem);
+
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-pill: 999px;
+
+  --shadow-xs: 0 1px 2px rgba(7, 20, 33, 0.06);
+  --shadow-sm: 0 8px 24px rgba(7, 20, 33, 0.08);
+  --shadow-md: 0 18px 55px rgba(7, 20, 33, 0.12);
+  --shadow-lg: 0 28px 80px rgba(7, 20, 33, 0.18);
+  --shadow-ring: 0 0 0 4px rgba(211, 132, 42, 0.22);
+
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-base: 240ms;
+  --duration-slow: 420ms;
+
+  --z-header: 50;
+  --z-overlay: 80;
+  --z-modal: 100;
+  --z-toast: 120;
+}

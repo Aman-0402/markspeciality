@@ -4,7 +4,7 @@
 
 This project is a modern React implementation inspired by the structure and design direction of Mark Speciality India Pvt. Ltd.'s public website. The goal is to build a premium, responsive, accessible, and SEO-friendly industrial website for lubricant products and business enquiries.
 
-Phase 1 establishes the React/Vite foundation, routing shell, project structure, documentation, and development workflow. Visual sections and production content will be implemented phase by phase.
+Phase 1 established the React/Vite foundation, routing shell, project structure, documentation, and development workflow. Phase 2 added the global design system. Visual sections and production content will be implemented phase by phase.
 
 ## Features
 
@@ -19,6 +19,9 @@ Current Phase 1 foundation:
 * Scroll-to-top behavior
 * Loading fallback
 * Structured data directory foundation
+* CSS design tokens for colors, typography, spacing, shadows, radii, and motion
+* Reusable button, card, form, section, grid, and animation utility classes
+* Common `ButtonLink` and `SectionHeading` components
 
 Planned features include advanced navigation, product browsing, blog content, contact form validation, SEO structured data, responsive polish, and performance optimization.
 
@@ -31,7 +34,7 @@ Planned features include advanced navigation, product browsing, blog content, co
 * Framer Motion
 * Lucide React
 * React Helmet Async
-* CSS with design tokens
+* Modular CSS design system
 * ESLint
 
 ## Installation
@@ -81,7 +84,7 @@ Important directories:
 * `src/components/` contains reusable UI and layout components.
 * `src/pages/` contains route-level page components.
 * `src/data/` contains editable content and navigation data.
-* `src/styles/` contains global styling and design tokens.
+* `src/styles/` contains modular design-system files for tokens, reset, base styles, components, utilities, and animations.
 * `src/assets/` is reserved for owned or replaceable project assets.
 
 ## Routes
@@ -105,7 +108,7 @@ The initial architecture includes reusable layout, SEO, loading, and scroll rest
 
 ## Responsive Design
 
-The Phase 1 shell includes responsive containers and mobile-safe typography. Full responsive QA across target breakpoints will be completed in the dedicated accessibility and responsive phase.
+The shell includes responsive containers, mobile-safe typography, fluid section spacing, and responsive grid utilities. Full responsive QA across target breakpoints will be completed in the dedicated accessibility and responsive phase.
 
 ## SEO
 

@@ -1,0 +1,219 @@
+.container {
+  width: min(var(--container-lg), calc(100% - (var(--container-padding) * 2)));
+  margin-inline: auto;
+}
+
+.container--narrow {
+  width: min(var(--container-sm), calc(100% - (var(--container-padding) * 2)));
+}
+
+.container--wide {
+  width: min(var(--container-xl), calc(100% - (var(--container-padding) * 2)));
+}
+
+.section {
+  padding-block: clamp(var(--space-16), 10vw, var(--space-28));
+}
+
+.section--compact {
+  padding-block: clamp(var(--space-12), 8vw, var(--space-20));
+}
+
+.section--surface {
+  background: var(--color-surface);
+}
+
+.section--muted {
+  background: var(--color-surface-muted);
+}
+
+.page-section {
+  padding-block: clamp(var(--space-16), 10vw, var(--space-28));
+}
+
+.page-section--hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    var(--gradient-hero),
+    radial-gradient(circle at top right, rgba(211, 132, 42, 0.28), transparent 36%);
+  color: var(--color-white);
+}
+
+.page-section--hero h1,
+.page-section--hero h2,
+.page-section--hero h3 {
+  color: var(--color-white);
+}
+
+.page-section--hero .lead {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.eyebrow {
+  margin: 0 0 var(--space-4);
+  color: var(--color-gold-300);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.lead {
+  max-width: 720px;
+  margin: var(--space-6) 0 0;
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.75;
+}
+
+.lead + .cluster {
+  margin-top: var(--space-8);
+}
+
+.section-heading {
+  max-width: 760px;
+}
+
+.section-heading--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-heading__title {
+  margin-bottom: 0;
+}
+
+.section-heading__copy {
+  margin: var(--space-4) 0 0;
+  font-size: clamp(1rem, 1.7vw, 1.15rem);
+}
+
+.button,
+.button-secondary,
+.button-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-width: 44px;
+  min-height: 46px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  padding: 0.78rem 1.1rem;
+  font-weight: 850;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    transform var(--duration-base) var(--ease-standard),
+    border-color var(--duration-base) var(--ease-standard),
+    background-color var(--duration-base) var(--ease-standard),
+    color var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard);
+}
+
+.button {
+  background: var(--gradient-accent);
+  color: var(--color-white);
+  box-shadow: var(--shadow-sm);
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.button-secondary {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.button-secondary:hover,
+.button-secondary:focus-visible {
+  background: var(--color-primary-strong);
+  transform: translateY(-2px);
+}
+
+.button-ghost {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.35);
+  color: var(--color-white);
+}
+
+.button-ghost:hover,
+.button-ghost:focus-visible {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.68);
+}
+
+.card {
+  border: 1px solid rgba(199, 208, 219, 0.75);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-xs);
+  transition:
+    transform var(--duration-base) var(--ease-standard),
+    border-color var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard);
+}
+
+.card--interactive:hover,
+.card--interactive:focus-within {
+  transform: translateY(-4px);
+  border-color: rgba(211, 132, 42, 0.42);
+  box-shadow: var(--shadow-md);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.field {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.field label {
+  color: var(--color-text-strong);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-white);
+  color: var(--color-text);
+  padding: 0.85rem 0.95rem;
+  transition:
+    border-color var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard);
+}
+
+.textarea {
+  min-height: 148px;
+  resize: vertical;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-ring);
+  outline: none;
+}
+
+.field-error {
+  color: var(--color-danger-600);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.required {
+  color: var(--color-danger-600);
+}
