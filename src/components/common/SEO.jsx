@@ -6,9 +6,11 @@ export default function SEO({
   title = siteName,
   description = 'Premium lubricant solutions for automotive, industrial, grease, and specialty applications.',
   path = '/',
+  jsonLd,
 }) {
   const canonicalPath = path.startsWith('/') ? path : `/${path}`;
   const canonicalUrl = `https://markspeciality.com${canonicalPath}`;
+  const schemas = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 
   return (
     <Helmet>
@@ -23,6 +25,11 @@ export default function SEO({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
+      {schemas.map((schema, index) => (
+        <script type="application/ld+json" key={`jsonld-${index}`}>
+          {JSON.stringify(schema)}
+        </script>
+      ))}
     </Helmet>
   );
 }

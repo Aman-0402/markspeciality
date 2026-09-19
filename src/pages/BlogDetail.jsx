@@ -7,6 +7,7 @@ import CTASection from '../components/common/CTASection.jsx';
 import BlogCard from '../components/blog/BlogCard.jsx';
 import ShareButtons from '../components/blog/ShareButtons.jsx';
 import { getBlogPost, getRelatedPosts } from '../data/blogs.js';
+import { buildArticleSchema, buildBreadcrumbSchema } from '../utils/structuredData.js';
 
 function formatDate(dateString) {
   return new Date(dateString).toLocaleDateString('en-IN', {
@@ -38,6 +39,7 @@ export default function BlogDetail() {
         title={`${post.title} | Mark Speciality Blog`}
         description={post.excerpt}
         path={`/blog/${post.slug}`}
+        jsonLd={[buildArticleSchema(post), buildBreadcrumbSchema(breadcrumbItems)]}
       />
       <section className="page-section page-section--hero">
         <div className="container">

@@ -4,7 +4,7 @@
 
 This project is a modern React implementation inspired by the structure and design direction of Mark Speciality India Pvt. Ltd.'s public website. The goal is to build a premium, responsive, accessible, and SEO-friendly industrial website for lubricant products and business enquiries.
 
-Phase 1 established the React/Vite foundation, routing shell, project structure, documentation, and development workflow. Phase 2 added the global design system. Phase 3 added the responsive header and navigation foundation. Phase 4 added the homepage hero. Phase 5 added the product category section. Phase 6 added the Why Choose Us feature section. Phase 7 added the Industries We Serve section. Phase 8 added the reusable consultation CTA, site footer, and back-to-top control. Phase 9 added the full About page. Phase 10 added the reusable, data-driven product overview and product category page architecture. Phase 11 completed all four product category pages, each with a distinct accent-color visual identity. Phase 12 added the Our Brands page. Phase 13 added the complete blog system. Phase 14 added the contact page with validated form handling. Additional sections and production content will be implemented phase by phase.
+Phase 1 established the React/Vite foundation, routing shell, project structure, documentation, and development workflow. Phase 2 added the global design system. Phase 3 added the responsive header and navigation foundation. Phase 4 added the homepage hero. Phase 5 added the product category section. Phase 6 added the Why Choose Us feature section. Phase 7 added the Industries We Serve section. Phase 8 added the reusable consultation CTA, site footer, and back-to-top control. Phase 9 added the full About page. Phase 10 added the reusable, data-driven product overview and product category page architecture. Phase 11 completed all four product category pages, each with a distinct accent-color visual identity. Phase 12 added the Our Brands page. Phase 13 added the complete blog system. Phase 14 added the contact page with validated form handling. Phase 15 added site-wide SEO: structured data, sitemap, and robots updates. Additional sections and production content will be implemented phase by phase.
 
 ## Features
 
@@ -37,6 +37,7 @@ Current Phase 1 foundation:
 * Blog listing page with featured article, client-side search, category filters, and responsive blog cards
 * Blog article detail page with breadcrumb, metadata, related articles, and share controls (native share, email, copy link)
 * Contact page with opening times, customer support, corporate/factory addresses, phone/email links, and a validated contact form with loading and success states
+* Site-wide JSON-LD structured data (Organization, BreadcrumbList, Product, Article), `sitemap.xml`, and an updated `robots.txt`
 
 Planned features include advanced navigation, product browsing, blog content, contact form validation, SEO structured data, responsive polish, and performance optimization.
 
@@ -128,7 +129,7 @@ The shell includes responsive containers, mobile-safe typography, fluid section 
 
 ## SEO
 
-Initial route metadata is handled with `react-helmet-async`. Future phases will add richer Open Graph assets, canonical-ready route metadata, sitemap, robots updates, and structured data.
+Every route sets a unique title, meta description, canonical URL, Open Graph, and Twitter card metadata via the shared `SEO` component (`react-helmet-async`). JSON-LD structured data is included per route: Organization on the homepage, BreadcrumbList on every content page, Product schema on each product category page, and Article schema on each blog post. `public/sitemap.xml` lists all static routes and `public/robots.txt` references it.
 
 ## Accessibility
 

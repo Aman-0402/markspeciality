@@ -4,6 +4,9 @@ import SEO from '../components/common/SEO.jsx';
 import AboutHero from '../components/about/AboutHero.jsx';
 import ExpandableSection from '../components/about/ExpandableSection.jsx';
 import { aboutSections, companyOverview, companyStrengths, coreValues } from '../data/about.js';
+import { buildBreadcrumbSchema } from '../utils/structuredData.js';
+
+const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'About Us' }];
 
 export default function About() {
   return (
@@ -12,8 +15,9 @@ export default function About() {
         title="About Us | Mark Speciality"
         description="Learn about Mark Speciality India Pvt. Ltd.'s vision, mission, core values, manufacturing capability, and commitment to quality."
         path="/about"
+        jsonLd={buildBreadcrumbSchema(breadcrumbItems)}
       />
-      <AboutHero />
+      <AboutHero breadcrumbItems={breadcrumbItems} />
 
       <section className="section section--surface">
         <div className="container about-overview">

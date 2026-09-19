@@ -4,6 +4,7 @@ import Breadcrumb from '../components/common/Breadcrumb.jsx';
 import SectionHeading from '../components/common/SectionHeading.jsx';
 import ContactForm from '../components/contact/ContactForm.jsx';
 import { contactInfo } from '../data/contact.js';
+import { buildBreadcrumbSchema } from '../utils/structuredData.js';
 
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Contact Us' }];
 
@@ -50,6 +51,7 @@ export default function Contact() {
         title="Contact Us | Mark Speciality"
         description="Get in touch with Mark Speciality for product enquiries, technical support, or quotation requests."
         path="/contact"
+        jsonLd={buildBreadcrumbSchema(breadcrumbItems)}
       />
       <section className="page-section page-section--hero">
         <div className="container">

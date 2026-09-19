@@ -7,6 +7,7 @@ import CTASection from '../components/common/CTASection.jsx';
 import FeaturedArticle from '../components/blog/FeaturedArticle.jsx';
 import BlogCard from '../components/blog/BlogCard.jsx';
 import { blogCategories, blogs } from '../data/blogs.js';
+import { buildBreadcrumbSchema } from '../utils/structuredData.js';
 
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Blog' }];
 
@@ -40,6 +41,7 @@ export default function Blog() {
         title="Blog | Mark Speciality"
         description="Practical lubrication guidance, maintenance tips, and industry insights from the Mark Speciality technical team."
         path="/blog"
+        jsonLd={buildBreadcrumbSchema(breadcrumbItems)}
       />
       <section className="page-section page-section--hero">
         <div className="container">

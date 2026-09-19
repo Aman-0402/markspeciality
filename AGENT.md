@@ -6,7 +6,7 @@ Mark Speciality React Website
 
 ## Current Status
 
-Phase 14 Contact Page completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, modular styling foundations, responsive navigation, a polished homepage hero, a product category section, a feature/value proposition section, an industries section, a reusable consultation CTA, a site-wide footer with back-to-top control, a full About page, a reusable data-driven product system covering all four product category pages, an Our Brands page, a complete blog system, and a Contact page with validated form handling and loading/success/error states.
+Phase 15 SEO completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, modular styling foundations, responsive navigation, a polished homepage hero, a product category section, a feature/value proposition section, an industries section, a reusable consultation CTA, a site-wide footer with back-to-top control, a full About page, a reusable data-driven product system covering all four product category pages, an Our Brands page, a complete blog system, a Contact page with validated form handling, and site-wide SEO: per-route metadata, JSON-LD structured data (Organization, BreadcrumbList, Product, Article), sitemap.xml, and an updated robots.txt.
 
 ## Progress
 
@@ -833,3 +833,64 @@ Next:
 * Review diff.
 * Commit and push Phase 14.
 * Start Phase 15 after user approval.
+
+### [2026-09-19 23] Update #015
+
+Status:
+Completed
+
+Work Completed:
+
+* Extended `SEO.jsx` with an optional `jsonLd` prop (accepts a single schema object or an array) that renders one `<script type="application/ld+json">` per schema via `react-helmet-async`.
+* Created `src/utils/structuredData.js` with `buildOrganizationSchema`, `buildBreadcrumbSchema(items)`, `buildProductSchema(product)`, and `buildArticleSchema(post)` helpers.
+* Wired structured data into every route: Organization schema on Home; BreadcrumbList schema on About, Products, Brands, Blog, and Contact; Product + BreadcrumbList schema on each product category page; Article + BreadcrumbList schema on each blog post page.
+* Added a breadcrumb to the About page (previously missing) by passing `breadcrumbItems` into `AboutHero`, which now renders the shared `Breadcrumb` component.
+* Created `public/sitemap.xml` listing all 16 static routes (home, about, products overview, 4 product category pages, brands, blog listing, 6 blog posts, contact).
+* Updated `public/robots.txt` to reference the sitemap.
+
+Files Created:
+
+* `public/sitemap.xml`
+* `src/utils/structuredData.js`
+
+Files Modified:
+
+* `AGENT.md`
+* `README.md`
+* `public/robots.txt`
+* `src/components/about/AboutHero.jsx`
+* `src/components/common/SEO.jsx`
+* `src/pages/About.jsx`
+* `src/pages/Blog.jsx`
+* `src/pages/BlogDetail.jsx`
+* `src/pages/Brands.jsx`
+* `src/pages/Contact.jsx`
+* `src/pages/Home.jsx`
+* `src/pages/Products.jsx`
+* `src/pages/ProductCategory.jsx`
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None
+
+Reason:
+Implement the required SEO phase: unique per-route titles/descriptions (already present from earlier phases), Open Graph and Twitter metadata (already present), canonical-ready structure (already present), plus the remaining requirements — sitemap.xml, an updated robots.txt, and structured data for Organization, Product, BreadcrumbList, and Article.
+
+Testing:
+
+* `npm run lint` passed.
+* `npm run build` passed; confirmed `robots.txt` and `sitemap.xml` are copied into `dist/`.
+* Responsive check pending for later visual QA phase.
+
+Git Commit:
+`pending`
+
+Next:
+
+* Review diff.
+* Commit and push Phase 15.
+* Start Phase 16 after user approval.

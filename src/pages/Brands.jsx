@@ -4,6 +4,7 @@ import SectionHeading from '../components/common/SectionHeading.jsx';
 import CTASection from '../components/common/CTASection.jsx';
 import BrandCard from '../components/brands/BrandCard.jsx';
 import { brands } from '../data/brands.js';
+import { buildBreadcrumbSchema } from '../utils/structuredData.js';
 
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Our Brands' }];
 
@@ -14,6 +15,7 @@ export default function Brands() {
         title="Our Brands | Mark Speciality"
         description="Explore Mark Speciality's dedicated brand lines for automotive, industrial, grease, and specialty lubricant applications."
         path="/brands"
+        jsonLd={buildBreadcrumbSchema(breadcrumbItems)}
       />
       <section className="page-section page-section--hero">
         <div className="container">

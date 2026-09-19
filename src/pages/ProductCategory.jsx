@@ -8,6 +8,7 @@ import BenefitList from '../components/products/BenefitList.jsx';
 import RelatedProducts from '../components/products/RelatedProducts.jsx';
 import { getProductCategory } from '../data/products.js';
 import { industries } from '../data/industries.js';
+import { buildBreadcrumbSchema, buildProductSchema } from '../utils/structuredData.js';
 
 export default function ProductCategory() {
   const { slug } = useParams();
@@ -33,6 +34,7 @@ export default function ProductCategory() {
         title={`${product.title} | Mark Speciality`}
         description={product.description}
         path={`/products/${product.slug}`}
+        jsonLd={[buildProductSchema(product), buildBreadcrumbSchema(breadcrumbItems)]}
       />
       <ProductHero product={product} breadcrumbItems={breadcrumbItems} />
 
