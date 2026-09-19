@@ -4,7 +4,7 @@
 
 This project is a modern React implementation inspired by the structure and design direction of Mark Speciality India Pvt. Ltd.'s public website. The goal is to build a premium, responsive, accessible, and SEO-friendly industrial website for lubricant products and business enquiries.
 
-Phase 1 established the React/Vite foundation, routing shell, project structure, documentation, and development workflow. Phase 2 added the global design system. Phase 3 added the responsive header and navigation foundation. Phase 4 added the homepage hero. Phase 5 added the product category section. Phase 6 added the Why Choose Us feature section. Phase 7 added the Industries We Serve section. Phase 8 added the reusable consultation CTA, site footer, and back-to-top control. Phase 9 added the full About page. Phase 10 added the reusable, data-driven product overview and product category page architecture. Phase 11 completed all four product category pages, each with a distinct accent-color visual identity. Additional sections and production content will be implemented phase by phase.
+Phase 1 established the React/Vite foundation, routing shell, project structure, documentation, and development workflow. Phase 2 added the global design system. Phase 3 added the responsive header and navigation foundation. Phase 4 added the homepage hero. Phase 5 added the product category section. Phase 6 added the Why Choose Us feature section. Phase 7 added the Industries We Serve section. Phase 8 added the reusable consultation CTA, site footer, and back-to-top control. Phase 9 added the full About page. Phase 10 added the reusable, data-driven product overview and product category page architecture. Phase 11 completed all four product category pages, each with a distinct accent-color visual identity. Phase 12 added the Our Brands page. Additional sections and production content will be implemented phase by phase.
 
 ## Features
 
@@ -33,6 +33,7 @@ Current Phase 1 foundation:
 * About page with vision/mission overview, core values, company strengths, and expandable capability sections (Manufacturing Capability, Innovation, Sustainability, Quality Commitment, Customer Partnerships, Future Vision)
 * Data-driven Products overview page and reusable product category template with breadcrumbs, key benefits, typical applications, performance advantages, industries served, related products, and a consultation CTA
 * Four fully working product category pages (Automotive Lubricants, Industrial Lubricants, Greases, Specialty Products), each with its own accent-color visual identity
+* Our Brands page presenting four Mark Speciality brand lines (Mark Drive, Mark Industrial, Mark Shield, Mark Specialty), each linked to its matching product category
 
 Planned features include advanced navigation, product browsing, blog content, contact form validation, SEO structured data, responsive polish, and performance optimization.
 

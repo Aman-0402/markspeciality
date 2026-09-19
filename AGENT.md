@@ -6,7 +6,7 @@ Mark Speciality React Website
 
 ## Current Status
 
-Phase 11 Product Category Pages completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, modular styling foundations, responsive navigation, a polished homepage hero, a product category section, a feature/value proposition section, an industries section, a reusable consultation CTA, a site-wide footer with back-to-top control, a full About page, and a reusable, data-driven product overview page plus fully working product category pages for all four categories, each with its own accent-color visual identity.
+Phase 12 Our Brands page completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, modular styling foundations, responsive navigation, a polished homepage hero, a product category section, a feature/value proposition section, an industries section, a reusable consultation CTA, a site-wide footer with back-to-top control, a full About page, a reusable data-driven product system covering all four product category pages, and an Our Brands page presenting four Mark Speciality brand lines tied to the product categories.
 
 ## Progress
 
@@ -672,3 +672,54 @@ Next:
 * Review diff.
 * Commit and push Phase 11.
 * Start Phase 12 after user approval.
+
+### [2026-09-19 23] Update #012
+
+Status:
+Completed
+
+Work Completed:
+
+* Created `src/data/brands.js` with four Mark Speciality brand lines (Mark Drive, Mark Industrial, Mark Shield, Mark Specialty), each with a monogram, tagline, description, accent color, and a link to its matching product category slug.
+* Created `BrandCard` component: monogram badge (reusing the same text-mark pattern as the header/footer brand mark, no external logo images), tagline, description, hover elevation via the existing `.card--interactive` class, and a "View products" link into the matching product category page.
+* Rebuilt `Brands.jsx` with breadcrumb, hero, brand grid, and a closing consultation CTA.
+* Added `brands.css` with brand grid and brand card styling plus responsive breakpoints.
+
+Files Created:
+
+* `src/components/brands/BrandCard.jsx`
+* `src/data/brands.js`
+* `src/styles/brands.css`
+
+Files Modified:
+
+* `AGENT.md`
+* `README.md`
+* `src/pages/Brands.jsx`
+* `src/styles/global.css`
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None
+
+Reason:
+Implement the required Our Brands page (brand cards, brief introduction, brand identity presentation, product associations, hover interactions). No real third-party brand/logo assets or rights were provided for this project, so brand lines were modeled as Mark Speciality's own product-line brands with text-mark badges instead of external logo images, per the content/asset rule against reproducing assets without rights.
+
+Testing:
+
+* `npm run lint` passed.
+* `npm run build` passed.
+* Responsive check pending for later visual QA phase.
+
+Git Commit:
+`pending`
+
+Next:
+
+* Review diff.
+* Commit and push Phase 12.
+* Start Phase 13 after user approval.

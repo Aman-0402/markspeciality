@@ -1,0 +1,78 @@
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-6);
+  margin-top: var(--space-10);
+}
+
+.brand-card {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-7);
+}
+
+.brand-card__mark {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--brand-accent, var(--color-accent));
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 900;
+  box-shadow: var(--shadow-sm);
+}
+
+.brand-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.brand-card__tagline {
+  margin: 0;
+  color: var(--brand-accent, var(--color-accent-strong));
+  font-weight: 800;
+  font-size: 0.92rem;
+}
+
+.brand-card__description {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  font-size: 0.95rem;
+}
+
+.brand-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  color: var(--color-text-strong);
+  font-weight: 800;
+  font-size: 0.92rem;
+  text-decoration: none;
+}
+
+.brand-card__link svg {
+  transition: transform var(--duration-base) var(--ease-standard);
+}
+
+.brand-card__link:hover svg,
+.brand-card__link:focus-visible svg {
+  transform: translate(2px, -2px);
+}
+
+@media (max-width: 1180px) {
+  .brand-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .brand-grid {
+    grid-template-columns: 1fr;
+  }
+}
