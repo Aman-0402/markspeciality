@@ -6,7 +6,7 @@ Mark Speciality React Website
 
 ## Current Status
 
-Phase 8 CTA & Footer completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, modular styling foundations, responsive navigation, a polished homepage hero, a product category section, a feature/value proposition section, an industries section, a reusable consultation CTA, and a site-wide footer with back-to-top control.
+Phase 9 About page completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, modular styling foundations, responsive navigation, a polished homepage hero, a product category section, a feature/value proposition section, an industries section, a reusable consultation CTA, a site-wide footer with back-to-top control, and a full About page with vision/mission, core values, strengths, and expandable capability sections.
 
 ## Progress
 
@@ -510,3 +510,57 @@ Next:
 * Review diff.
 * Commit and push Phase 8.
 * Start Phase 9 after user approval.
+
+### [2026-09-19 22] Update #009
+
+Status:
+Completed
+
+Work Completed:
+
+* Added structured About page data: company overview (intro/vision/mission), four core values (Integrity, Excellence, Innovation, Sustainability), company strengths, and six long-form capability sections (Manufacturing Capability, Innovation, Sustainability, Quality Commitment, Customer Partnerships, Future Vision).
+* Created `AboutHero` component reusing the existing `page-section--hero` gradient hero pattern.
+* Created reusable `ExpandableSection` component with Read More/Read Less toggle, `aria-expanded`/`aria-controls`, and staggered reveal animation, so long capability text stays scannable instead of a wall of text.
+* Rebuilt `About.jsx` with: hero, Who We Are/Vision/Mission cards, Core Values grid, Company Strengths grid, expandable capability sections grid, and a closing consultation CTA.
+* Added `about.css` with light-themed overview cards, value cards, strength cards, and expandable-section styling plus responsive breakpoints.
+* Verified `Leaf`, `Factory`, `ShieldCheck`, `Award` icon exports exist in the installed `lucide-react` version before using them (after the Phase 8 brand-icon breakage).
+
+Files Created:
+
+* `src/components/about/AboutHero.jsx`
+* `src/components/about/ExpandableSection.jsx`
+* `src/data/about.js`
+* `src/styles/about.css`
+
+Files Modified:
+
+* `AGENT.md`
+* `README.md`
+* `src/pages/About.jsx`
+* `src/styles/global.css`
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None
+
+Reason:
+Implement the required About Us page (hero, company introduction, vision, mission, core values, strengths, manufacturing capability, innovation, sustainability, quality commitment, customer partnerships, future vision) using expand/collapse for long-form sections to avoid unreadable walls of text.
+
+Testing:
+
+* `npm run lint` passed.
+* `npm run build` passed.
+* Responsive check pending for later visual QA phase.
+
+Git Commit:
+`pending`
+
+Next:
+
+* Review diff.
+* Commit and push Phase 9.
+* Start Phase 10 after user approval.
