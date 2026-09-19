@@ -1,11 +1,9 @@
 import { motion } from 'framer-motion';
-import Breadcrumb from '../common/Breadcrumb.jsx';
 
-export default function AboutHero({ breadcrumbItems }) {
+export default function AboutHero() {
   return (
     <section className="page-section page-section--hero about-hero">
       <div className="container">
-        {breadcrumbItems ? <Breadcrumb items={breadcrumbItems} /> : null}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

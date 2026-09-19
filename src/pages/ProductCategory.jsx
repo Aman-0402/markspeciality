@@ -1,10 +1,12 @@
 import { Navigate, useParams } from 'react-router-dom';
-import { CheckCircle2, Wrench } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import SEO from '../components/common/SEO.jsx';
 import SectionHeading from '../components/common/SectionHeading.jsx';
 import CTASection from '../components/common/CTASection.jsx';
 import ProductHero from '../components/products/ProductHero.jsx';
 import BenefitList from '../components/products/BenefitList.jsx';
+import TagList from '../components/products/TagList.jsx';
+import StatHighlights from '../components/products/StatHighlights.jsx';
 import RelatedProducts from '../components/products/RelatedProducts.jsx';
 import { getProductCategory } from '../data/products.js';
 import { industries } from '../data/industries.js';
@@ -36,7 +38,7 @@ export default function ProductCategory() {
         path={`/products/${product.slug}`}
         jsonLd={[buildProductSchema(product), buildBreadcrumbSchema(breadcrumbItems)]}
       />
-      <ProductHero product={product} breadcrumbItems={breadcrumbItems} />
+      <ProductHero product={product} />
 
       <section className="section section--surface">
         <div className="container product-overview">
@@ -51,6 +53,19 @@ export default function ProductCategory() {
                 </li>
               ))}
             </ul>
+          </div>
+          <div className="product-overview__media">
+            <picture>
+              {product.imageWebp ? <source srcSet={product.imageWebp} type="image/webp" /> : null}
+              <img
+                src={product.image}
+                alt={product.imageAlt}
+                width={product.imageWidth}
+                height={product.imageHeight}
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
         </div>
       </section>
@@ -69,7 +84,7 @@ export default function ProductCategory() {
             title="Where It's Used"
             align="center"
           />
-          <BenefitList items={product.applications} icon={Wrench} />
+          <TagList items={product.applications} />
         </div>
       </section>
 
@@ -81,7 +96,7 @@ export default function ProductCategory() {
               title="Engineered For Reliable Operation"
               align="center"
             />
-            <BenefitList items={product.performanceAdvantages} icon={CheckCircle2} />
+            <StatHighlights items={product.performanceAdvantages} />
           </div>
         </section>
       ) : null}

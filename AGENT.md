@@ -1172,3 +1172,61 @@ Next:
 * Review diff.
 * Commit and push.
 * Continue the visual-uniqueness/imagery pass on product category pages and the About page.
+
+### [2026-09-20] Update #021
+
+Status:
+Completed
+
+Work Completed:
+
+* **Product category page visual differentiation.** `ProductHero` now shows the category's own product photo beside the heading (previously text-only on a gradient), and the "Category Overview" section now shows the same photo beside the feature checklist. Replaced two of the three back-to-back, visually identical `BenefitList` sections with new, distinct components: `TagList` (pill-chip row) for "Typical Applications" and `StatHighlights` (numbered `01/02/03...` highlight strip) for "Performance Advantages", so the four stacked sections on each product page (Key Benefits, Typical Applications, Performance Advantages, Industries Served) now read as four different layouts instead of three clones of the same card row.
+* **Removed the visible breadcrumb trail** ("Home > About Us" style) from every page hero (About, Products, Brands, Blog, Blog article, Contact, and all four product category pages) per user request. The underlying `BreadcrumbList` JSON-LD structured data added in Phase 15 was kept intact since it is invisible SEO metadata, not the visual element the user asked to remove; only the on-page `<Breadcrumb>` component render calls were removed. The `Breadcrumb` component file itself was left in place in case it's wanted again later.
+* **Widened the site's content container** from 1216px (`--container-lg: 76rem`) to 1450px (`--container-lg: 90.625rem`) per user request, affecting every `.container`-based section site-wide.
+
+Files Created:
+
+* `src/components/products/StatHighlights.jsx`
+* `src/components/products/TagList.jsx`
+
+Files Modified:
+
+* `AGENT.md`
+* `src/components/about/AboutHero.jsx`
+* `src/components/home/HomeHero.jsx` (already committed in Update #020; no further change here)
+* `src/components/products/ProductHero.jsx`
+* `src/pages/About.jsx`
+* `src/pages/Blog.jsx`
+* `src/pages/BlogDetail.jsx`
+* `src/pages/Brands.jsx`
+* `src/pages/Contact.jsx`
+* `src/pages/ProductCategory.jsx`
+* `src/pages/Products.jsx`
+* `src/styles/products.css`
+* `src/styles/tokens.css`
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None
+
+Reason:
+Directly implements the user's follow-up requests: differentiate the repetitive product-page sections with real imagery, remove the visible breadcrumb UI, and widen the content container to 1450px.
+
+Testing:
+
+* `npm run lint` passed.
+* `npm run build` passed.
+* Verified via Playwright: `.container` measures exactly 1450px; breadcrumb no longer renders on the About page; product category hero and overview sections render the category photo correctly.
+
+Git Commit:
+`pending`
+
+Next:
+
+* Review diff.
+* Commit and push.
+* Consider adding photography to the About page's "Capability, Quality & Growth" section (still text-only) if further visual polish is wanted.

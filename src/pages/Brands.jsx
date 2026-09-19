@@ -1,5 +1,4 @@
 import SEO from '../components/common/SEO.jsx';
-import Breadcrumb from '../components/common/Breadcrumb.jsx';
 import SectionHeading from '../components/common/SectionHeading.jsx';
 import CTASection from '../components/common/CTASection.jsx';
 import BrandCard from '../components/brands/BrandCard.jsx';
@@ -19,7 +18,6 @@ export default function Brands() {
       />
       <section className="page-section page-section--hero">
         <div className="container">
-          <Breadcrumb items={breadcrumbItems} />
           <p className="eyebrow">Our Brands</p>
           <h1>Dedicated Brand Lines For Every Application</h1>
           <p className="lead">

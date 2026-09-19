@@ -1,7 +1,6 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { BookOpen, Calendar, Clock } from 'lucide-react';
 import SEO from '../components/common/SEO.jsx';
-import Breadcrumb from '../components/common/Breadcrumb.jsx';
 import SectionHeading from '../components/common/SectionHeading.jsx';
 import CTASection from '../components/common/CTASection.jsx';
 import BlogCard from '../components/blog/BlogCard.jsx';
@@ -43,7 +42,6 @@ export default function BlogDetail() {
       />
       <section className="page-section page-section--hero">
         <div className="container">
-          <Breadcrumb items={breadcrumbItems} />
           <p className="eyebrow">{post.category}</p>
           <h1>{post.title}</h1>
           <div className="blog-article__meta">

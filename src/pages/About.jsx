@@ -17,7 +17,7 @@ export default function About() {
         path="/about"
         jsonLd={buildBreadcrumbSchema(breadcrumbItems)}
       />
-      <AboutHero breadcrumbItems={breadcrumbItems} />
+      <AboutHero />
 
       <section className="section section--surface">
         <div className="container about-overview">

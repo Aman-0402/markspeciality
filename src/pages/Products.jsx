@@ -1,5 +1,4 @@
 import SEO from '../components/common/SEO.jsx';
-import Breadcrumb from '../components/common/Breadcrumb.jsx';
 import SectionHeading from '../components/common/SectionHeading.jsx';
 import CTASection from '../components/common/CTASection.jsx';
 import ProductGrid from '../components/products/ProductGrid.jsx';
@@ -19,7 +18,6 @@ export default function Products() {
       />
       <section className="page-section page-section--hero">
         <div className="container">
-          <Breadcrumb items={breadcrumbItems} />
           <p className="eyebrow">Product Range</p>
           <h1>Lubricant Solutions For Every Application</h1>
           <p className="lead">

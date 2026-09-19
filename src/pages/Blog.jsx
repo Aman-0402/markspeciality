@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Search } from 'lucide-react';
 import SEO from '../components/common/SEO.jsx';
-import Breadcrumb from '../components/common/Breadcrumb.jsx';
 import SectionHeading from '../components/common/SectionHeading.jsx';
 import CTASection from '../components/common/CTASection.jsx';
 import FeaturedArticle from '../components/blog/FeaturedArticle.jsx';
@@ -45,7 +44,6 @@ export default function Blog() {
       />
       <section className="page-section page-section--hero">
         <div className="container">
-          <Breadcrumb items={breadcrumbItems} />
           <p className="eyebrow">Insights &amp; Guidance</p>
           <h1>Lubrication Knowledge From Our Technical Team</h1>
           <p className="lead">

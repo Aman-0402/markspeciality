@@ -1,6 +1,5 @@
 import { Clock, Headset, Mail, MapPin, Phone } from 'lucide-react';
 import SEO from '../components/common/SEO.jsx';
-import Breadcrumb from '../components/common/Breadcrumb.jsx';
 import SectionHeading from '../components/common/SectionHeading.jsx';
 import ContactForm from '../components/contact/ContactForm.jsx';
 import { contactInfo } from '../data/contact.js';
@@ -55,7 +54,6 @@ export default function Contact() {
       />
       <section className="page-section page-section--hero">
         <div className="container">
-          <Breadcrumb items={breadcrumbItems} />
           <p className="eyebrow">Get In Touch With Us</p>
           <h1>We're Here to Help With Your Lubrication Needs</h1>
           <p className="lead">
