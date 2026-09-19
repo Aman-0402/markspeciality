@@ -6,7 +6,7 @@ Mark Speciality React Website
 
 ## Current Status
 
-Phase 15 SEO completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, modular styling foundations, responsive navigation, a polished homepage hero, a product category section, a feature/value proposition section, an industries section, a reusable consultation CTA, a site-wide footer with back-to-top control, a full About page, a reusable data-driven product system covering all four product category pages, an Our Brands page, a complete blog system, a Contact page with validated form handling, and site-wide SEO: per-route metadata, JSON-LD structured data (Organization, BreadcrumbList, Product, Article), sitemap.xml, and an updated robots.txt.
+Phase 16 Accessibility & Responsive QA completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, modular styling foundations, responsive navigation, a polished homepage hero, a product category section, a feature/value proposition section, an industries section, a reusable consultation CTA, a site-wide footer with back-to-top control, a full About page, a reusable data-driven product system covering all four product category pages, an Our Brands page, a complete blog system, a Contact page with validated form handling, site-wide SEO, and an accessibility pass fixing a site-wide eyebrow color-contrast failure, brand card tagline contrast, mobile menu focus management, and touch target sizing.
 
 ## Progress
 
@@ -894,3 +894,59 @@ Next:
 * Review diff.
 * Commit and push Phase 15.
 * Start Phase 16 after user approval.
+
+### [2026-09-19 23] Update #016
+
+Status:
+Fixed
+
+Work Completed:
+
+* **Fixed a site-wide color contrast failure**: the global `.eyebrow` class used `var(--color-gold-300)` (a light gold intended for dark backgrounds), but `SectionHeading`'s eyebrow text is rendered on light backgrounds across almost every page (About, Products, Brands, Blog, Contact, and most homepage sections), failing WCAG AA contrast. Changed the base `.eyebrow` color to `var(--color-accent-strong)` (a dark gold with strong contrast on light backgrounds) and added scoped overrides back to the light gold for the three genuinely dark contexts: `.page-section--hero`, `.cta-section`, and `.why-choose`.
+* **Fixed `.brand-card__tagline` contrast**: it rendered as colored text using the raw brand accent color (some of which, like the safety-orange and gold accents, fail AA contrast on a white card), so it now uses `var(--color-text-strong)` for the text while accent colors remain on the decorative monogram badge only.
+* **Wired `prefers-reduced-motion` through to Framer Motion**: wrapped `App.jsx` in `<MotionConfig reducedMotion="user">` so all `motion.*` entrance/hover animations across the site respect the OS-level reduced-motion setting, complementing the existing CSS-level `prefers-reduced-motion` rule in `animations.css` (which only covered plain CSS transitions/animations, not Framer Motion).
+* **Added focus management to the mobile navigation dialog** (`MobileMenu.jsx`): focus now moves to the dialog's close button when it opens, a Tab-key focus trap keeps keyboard focus inside the open panel, and closing the menu (via the close button, backdrop, or Escape) returns focus to the hamburger button that opened it (`Header.jsx`).
+* **Fixed a touch-target size issue**: `.blog-categories__chip` buttons were under the 44px minimum touch target guideline; added `min-height: 44px`.
+* Audited heading hierarchy across all pages (single `h1` per page, correctly nested `h2`/`h3`), image alt text (all content images have descriptive `alt`; purely decorative images use `alt=""` with `aria-hidden`), and responsive breakpoints (320/375/390/430/768/1024/1280/1440/1920px) — no further issues found beyond the items above.
+
+Files Modified:
+
+* `AGENT.md`
+* `README.md`
+* `src/App.jsx`
+* `src/components/layout/Header.jsx`
+* `src/components/layout/MobileMenu.jsx`
+* `src/styles/blog.css`
+* `src/styles/brands.css`
+* `src/styles/components.css`
+
+Files Created:
+
+* None
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None
+
+Reason:
+Required accessibility and responsive QA pass. The eyebrow contrast bug was a real, site-wide WCAG AA failure affecting the vast majority of section headings across the site, introduced when the eyebrow style was originally written for a single dark hero context and then reused globally by `SectionHeading` on light sections in later phases.
+
+Testing:
+
+* `npm run lint` passed.
+* `npm run build` passed.
+* Manually traced the eyebrow color through every page context (hero, CTA, WhyChooseUs, and all light `section--surface`/`section--muted` usages) to confirm both the light and dark contexts now have correct contrast.
+* Responsive check pending full manual QA in Phase 18; breakpoint CSS reviewed and no overflow/broken-layout issues found at the required widths.
+
+Git Commit:
+`pending`
+
+Next:
+
+* Review diff.
+* Commit and push Phase 16.
+* Start Phase 17 after user approval.

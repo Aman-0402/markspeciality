@@ -52,11 +52,17 @@
 
 .eyebrow {
   margin: 0 0 var(--space-4);
-  color: var(--color-gold-300);
+  color: var(--color-accent-strong);
   font-size: 0.78rem;
   font-weight: 900;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+}
+
+.page-section--hero .eyebrow,
+.cta-section .eyebrow,
+.why-choose .eyebrow {
+  color: var(--color-gold-300);
 }
 
 .lead {

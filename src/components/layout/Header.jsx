@@ -13,13 +13,21 @@ export default function Header() {
   const [productsOpen, setProductsOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const mobileMenuButtonRef = useRef(null);
+
+  const closeMobileMenu = () => {
+    setMobileOpen(false);
+    mobileMenuButtonRef.current?.focus();
+  };
   const productsActive = location.pathname.startsWith('/products');
 
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') {
         setProductsOpen(false);
-        setMobileOpen(false);
+        if (mobileOpen) {
+          closeMobileMenu();
+        }
       }
     };
 
@@ -36,7 +44,7 @@ export default function Header() {
       document.removeEventListener('keydown', handleKeyDown);
       document.removeEventListener('pointerdown', handlePointerDown);
     };
-  }, []);
+  }, [mobileOpen]);
 
   return (
     <header className={`site-header ${isScrolled ? 'site-header--scrolled' : ''}`}>
@@ -126,6 +134,7 @@ export default function Header() {
               onClick={() => setMobileOpen(true)}
               aria-label="Open menu"
               aria-expanded={mobileOpen}
+              ref={mobileMenuButtonRef}
             >
               <Menu size={24} aria-hidden="true" />
             </button>
@@ -135,7 +144,7 @@ export default function Header() {
       <MobileMenu
         isOpen={mobileOpen}
         navigation={mainNavigation}
-        onClose={() => setMobileOpen(false)}
+        onClose={closeMobileMenu}
         productsActive={productsActive}
       />
     </header>

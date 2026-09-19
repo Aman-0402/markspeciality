@@ -4,7 +4,7 @@
 
 This project is a modern React implementation inspired by the structure and design direction of Mark Speciality India Pvt. Ltd.'s public website. The goal is to build a premium, responsive, accessible, and SEO-friendly industrial website for lubricant products and business enquiries.
 
-Phase 1 established the React/Vite foundation, routing shell, project structure, documentation, and development workflow. Phase 2 added the global design system. Phase 3 added the responsive header and navigation foundation. Phase 4 added the homepage hero. Phase 5 added the product category section. Phase 6 added the Why Choose Us feature section. Phase 7 added the Industries We Serve section. Phase 8 added the reusable consultation CTA, site footer, and back-to-top control. Phase 9 added the full About page. Phase 10 added the reusable, data-driven product overview and product category page architecture. Phase 11 completed all four product category pages, each with a distinct accent-color visual identity. Phase 12 added the Our Brands page. Phase 13 added the complete blog system. Phase 14 added the contact page with validated form handling. Phase 15 added site-wide SEO: structured data, sitemap, and robots updates. Additional sections and production content will be implemented phase by phase.
+Phase 1 established the React/Vite foundation, routing shell, project structure, documentation, and development workflow. Phase 2 added the global design system. Phase 3 added the responsive header and navigation foundation. Phase 4 added the homepage hero. Phase 5 added the product category section. Phase 6 added the Why Choose Us feature section. Phase 7 added the Industries We Serve section. Phase 8 added the reusable consultation CTA, site footer, and back-to-top control. Phase 9 added the full About page. Phase 10 added the reusable, data-driven product overview and product category page architecture. Phase 11 completed all four product category pages, each with a distinct accent-color visual identity. Phase 12 added the Our Brands page. Phase 13 added the complete blog system. Phase 14 added the contact page with validated form handling. Phase 15 added site-wide SEO: structured data, sitemap, and robots updates. Phase 16 completed an accessibility and responsive QA pass, fixing a site-wide color contrast issue and mobile menu focus management. Additional sections and production content will be implemented phase by phase.
 
 ## Features
 
@@ -133,7 +133,7 @@ Every route sets a unique title, meta description, canonical URL, Open Graph, an
 
 ## Accessibility
 
-The app includes semantic route structure, a skip link, visible loading status, and reduced-motion support. Full keyboard, contrast, heading, alt text, and form accessibility reviews are planned.
+The app includes semantic route structure, a skip link, visible loading status, keyboard-accessible navigation with a focus-trapped and focus-managed mobile menu dialog, and reduced-motion support covering both CSS animations and Framer Motion (`MotionConfig reducedMotion="user"`). A Phase 16 audit fixed a site-wide color contrast issue in section eyebrow text and brand card taglines, and brought interactive touch targets up to the 44px minimum.
 
 ## Performance
 

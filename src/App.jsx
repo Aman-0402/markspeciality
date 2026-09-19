@@ -1,4 +1,5 @@
 import { Suspense, lazy } from 'react';
+import { MotionConfig } from 'framer-motion';
 import { Route, Routes } from 'react-router-dom';
 import PageLoader from './components/common/PageLoader.jsx';
 import ScrollToTop from './components/common/ScrollToTop.jsx';
@@ -17,7 +18,7 @@ const PlaceholderPage = lazy(() => import('./pages/PlaceholderPage.jsx'));
 
 export default function App() {
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       <ScrollToTop />
       <Suspense fallback={<PageLoader />}>
         <Routes>
@@ -54,6 +55,6 @@ export default function App() {
           </Route>
         </Routes>
       </Suspense>
-    </>
+    </MotionConfig>
   );
 }

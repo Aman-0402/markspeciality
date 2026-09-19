@@ -126,6 +126,7 @@
 }
 
 .blog-categories__chip {
+  min-height: 44px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);
   background: var(--color-surface);
