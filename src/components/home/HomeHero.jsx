@@ -28,20 +28,21 @@ const proofPoints = [
 export default function HomeHero() {
   return (
     <section className="home-hero" aria-labelledby="home-hero-title">
-      <picture>
-        <source srcSet={heroImageWebp} type="image/webp" />
-        <img
-          className="home-hero__image"
-          src={heroImage}
-          alt=""
-          aria-hidden="true"
-          width={1920}
-          height={800}
-          loading="eager"
-          fetchPriority="high"
-        />
-      </picture>
-      <div className="home-hero__scrim" aria-hidden="true" />
+      <div className="home-hero__background" aria-hidden="true">
+        <picture>
+          <source srcSet={heroImageWebp} type="image/webp" />
+          <img
+            className="home-hero__image"
+            src={heroImage}
+            alt=""
+            width={1920}
+            height={800}
+            loading="eager"
+            fetchPriority="high"
+          />
+        </picture>
+        <div className="home-hero__scrim" />
+      </div>
       <div className="container home-hero__inner">
         <motion.div
           className="home-hero__content"

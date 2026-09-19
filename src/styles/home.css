@@ -1,11 +1,16 @@
 .home-hero {
   position: relative;
-  min-height: clamp(680px, calc(100vh - 120px), 860px);
+  min-height: clamp(560px, 82vh, 780px);
   display: grid;
   align-items: center;
-  overflow: hidden;
   background: var(--color-primary-strong);
   color: var(--color-white);
+}
+
+.home-hero__background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
 }
 
 .home-hero__image {
@@ -31,8 +36,8 @@
   position: relative;
   z-index: 1;
   display: grid;
-  gap: clamp(var(--space-10), 6vw, var(--space-16));
-  padding-block: clamp(var(--space-20), 12vw, var(--space-32));
+  gap: clamp(var(--space-8), 5vw, var(--space-12));
+  padding-block: clamp(var(--space-12), 6vw, var(--space-20));
 }
 
 .home-hero__content {
@@ -40,8 +45,10 @@
 }
 
 .home-hero h1 {
-  max-width: 12ch;
+  max-width: 16ch;
   color: var(--color-white);
+  font-size: clamp(2.25rem, 5vw, 4.25rem);
+  line-height: 1.05;
 }
 
 .home-hero__lead {

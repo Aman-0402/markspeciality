@@ -1124,3 +1124,51 @@ Next:
 * Review diff.
 * Commit and push.
 * Continue with a visual-uniqueness/imagery pass on the About page and product category pages (repetitive card-row sections, no on-page photography) per the user's follow-up request.
+
+### [2026-09-19 23] Update #020
+
+Status:
+Fixed
+
+Work Completed:
+
+* **Fixed the homepage hero cropping the CTA buttons below the fold on common laptop screens.** `.home-hero` combined a viewport-relative `min-height` with `overflow: hidden` directly on the section containing the actual text content; on typical resolutions (1366x768, 1280x720, and similar), the H1 at its near-maximum clamp size wrapped to 4 lines plus generous vertical padding pushed the "View All Products"/"Request Consultation" buttons past the visible viewport, so first-time visitors saw the hero text but not the CTAs without scrolling. Root-caused with a Playwright measurement pass (button bottom at 805px against a 768px-tall viewport).
+* Split the hero background (image + scrim) into its own absolutely-positioned `.home-hero__background` wrapper with `overflow: hidden`, removing that clipping from `.home-hero` itself so foreground content is never visually cut off regardless of section height.
+* Reduced the hero `min-height` formula from `clamp(680px, calc(100vh - 120px), 860px)` to `clamp(560px, 82vh, 780px)`, tightened `.home-hero__inner`'s padding-block and gap, and gave `.home-hero h1` its own smaller clamp (`2.25rem` to `4.25rem`) and a wider `max-width` (16ch instead of 12ch) so the headline wraps to 3 lines instead of 4.
+* Verified with Playwright across 1280x720, 1366x768, 1440x900, and 1920x1080 that both CTA buttons now sit fully inside the first viewport, and confirmed the mobile (390px) hero still renders correctly.
+
+Files Modified:
+
+* `AGENT.md`
+* `src/components/home/HomeHero.jsx`
+* `src/styles/home.css`
+
+Files Created:
+
+* None
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None
+
+Reason:
+User reported the hero section appeared cropped with the CTA visible only at the very edge on first view. Measured and confirmed the CTA buttons were rendering past the visible viewport on common screen heights.
+
+Testing:
+
+* `npm run lint` passed.
+* `npm run build` passed.
+* Playwright measurement confirmed CTA button bottom is now within the viewport at 1280x720, 1366x768, 1440x900, and 1920x1080; visual screenshots confirmed the fix at each size plus mobile (390x844).
+
+Git Commit:
+`pending`
+
+Next:
+
+* Review diff.
+* Commit and push.
+* Continue the visual-uniqueness/imagery pass on product category pages and the About page.
