@@ -4,7 +4,7 @@
 
 This project is a modern React implementation inspired by the structure and design direction of Mark Speciality India Pvt. Ltd.'s public website. The goal is to build a premium, responsive, accessible, and SEO-friendly industrial website for lubricant products and business enquiries.
 
-Phase 1 established the React/Vite foundation, routing shell, project structure, documentation, and development workflow. Phase 2 added the global design system. Phase 3 added the responsive header and navigation foundation. Phase 4 added the homepage hero. Phase 5 added the product category section. Phase 6 added the Why Choose Us feature section. Additional sections and production content will be implemented phase by phase.
+Phase 1 established the React/Vite foundation, routing shell, project structure, documentation, and development workflow. Phase 2 added the global design system. Phase 3 added the responsive header and navigation foundation. Phase 4 added the homepage hero. Phase 5 added the product category section. Phase 6 added the Why Choose Us feature section. Phase 7 added the Industries We Serve section. Additional sections and production content will be implemented phase by phase.
 
 ## Features
 
@@ -26,6 +26,7 @@ Current Phase 1 foundation:
 * Homepage hero with local industrial visual, CTAs, proof points, statistics, and entrance animation
 * Data-driven product category section with local imagery, hover interactions, and responsive card grid
 * Why Choose Us section with feature data, icons, hover states, and staggered reveal animation
+* Industries We Serve section with structured sector data, visual cards, and responsive grid behavior
 
 Planned features include advanced navigation, product browsing, blog content, contact form validation, SEO structured data, responsive polish, and performance optimization.
 
