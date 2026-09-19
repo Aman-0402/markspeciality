@@ -2,6 +2,7 @@ import { ArrowRight, BadgeCheck, Factory, ShieldCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ButtonLink from '../common/ButtonLink.jsx';
 import heroImage from '../../assets/images/home-hero-industrial.png';
+import heroImageWebp from '../../assets/images/home-hero-industrial.webp';
 
 const heroStats = [
   { value: '4+', label: 'Product Categories' },
@@ -27,14 +28,19 @@ const proofPoints = [
 export default function HomeHero() {
   return (
     <section className="home-hero" aria-labelledby="home-hero-title">
-      <img
-        className="home-hero__image"
-        src={heroImage}
-        alt=""
-        aria-hidden="true"
-        loading="eager"
-        fetchPriority="high"
-      />
+      <picture>
+        <source srcSet={heroImageWebp} type="image/webp" />
+        <img
+          className="home-hero__image"
+          src={heroImage}
+          alt=""
+          aria-hidden="true"
+          width={1920}
+          height={800}
+          loading="eager"
+          fetchPriority="high"
+        />
+      </picture>
       <div className="home-hero__scrim" aria-hidden="true" />
       <div className="container home-hero__inner">
         <motion.div

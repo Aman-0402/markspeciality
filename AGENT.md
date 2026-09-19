@@ -6,7 +6,7 @@ Mark Speciality React Website
 
 ## Current Status
 
-Phase 16 Accessibility & Responsive QA completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, modular styling foundations, responsive navigation, a polished homepage hero, a product category section, a feature/value proposition section, an industries section, a reusable consultation CTA, a site-wide footer with back-to-top control, a full About page, a reusable data-driven product system covering all four product category pages, an Our Brands page, a complete blog system, a Contact page with validated form handling, site-wide SEO, and an accessibility pass fixing a site-wide eyebrow color-contrast failure, brand card tagline contrast, mobile menu focus management, and touch target sizing.
+Phase 17 Performance Optimization completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, modular styling foundations, responsive navigation, a polished homepage hero, a product category section, a feature/value proposition section, an industries section, a reusable consultation CTA, a site-wide footer with back-to-top control, a full About page, a reusable data-driven product system covering all four product category pages, an Our Brands page, a complete blog system, a Contact page with validated form handling, site-wide SEO, an accessibility pass, and optimized image delivery (WebP + compressed PNG fallback via `<picture>`, explicit dimensions, correct eager/lazy loading) that cut total local image weight from roughly 11.4MB to under 400KB for WebP-capable browsers.
 
 ## Progress
 
@@ -950,3 +950,73 @@ Next:
 * Review diff.
 * Commit and push Phase 16.
 * Start Phase 17 after user approval.
+
+### [2026-09-19 23] Update #017
+
+Status:
+Completed
+
+Work Completed:
+
+* Added `sharp` as a devDependency to run a one-off image optimization pass (build-time tool only, not shipped to the browser).
+* Resized and recompressed all five local images in `src/assets/images/` (previously flagged as oversized back in Phase 4 and Phase 5 notes): the hero image was resized to 1920x800 and the four product images to 900x600, matching their actual maximum display size. Generated a matching WebP file for each image.
+  * `home-hero-industrial.png`: 1.85MB -> 617KB (plus a 91KB WebP).
+  * `product-automotive-lubricants.png`: 2.11MB -> 259KB (55KB WebP).
+  * `product-greases.png`: 2.42MB -> 319KB (70KB WebP).
+  * `product-industrial-lubricants.png`: 2.31MB -> 299KB (76KB WebP).
+  * `product-specialty-products.png`: 2.17MB -> 259KB (62KB WebP).
+  * Total local image weight: ~11.4MB before -> ~1.75MB PNG fallback, or ~354KB when a browser uses the WebP source.
+* Updated `HomeHero.jsx` and `ProductCard.jsx` to render images through `<picture>` with a WebP `<source>` and the compressed PNG as the `<img>` fallback, each with explicit `width`/`height` attributes to prevent layout shift.
+* Added `imageWebp`, `imageWidth`, and `imageHeight` fields to every entry in `src/data/products.js`.
+* Confirmed the hero image keeps `loading="eager"`/`fetchPriority="high"` for LCP while product card images use `loading="lazy"` and `decoding="async"`.
+* Verified no web fonts are loaded over the network (the type stack falls back to system fonts), so there is no font-loading cost to optimize; documented this in `README.md`.
+* Confirmed existing route-level code splitting (`React.lazy` per page) and the site's already-small dependency set required no further changes.
+
+Files Modified:
+
+* `AGENT.md`
+* `README.md`
+* `package.json`
+* `package-lock.json`
+* `src/components/home/HomeHero.jsx`
+* `src/components/products/ProductCard.jsx`
+* `src/data/products.js`
+* `src/assets/images/home-hero-industrial.png` (recompressed in place)
+* `src/assets/images/product-automotive-lubricants.png` (recompressed in place)
+* `src/assets/images/product-greases.png` (recompressed in place)
+* `src/assets/images/product-industrial-lubricants.png` (recompressed in place)
+* `src/assets/images/product-specialty-products.png` (recompressed in place)
+
+Files Created:
+
+* `src/assets/images/home-hero-industrial.webp`
+* `src/assets/images/product-automotive-lubricants.webp`
+* `src/assets/images/product-greases.webp`
+* `src/assets/images/product-industrial-lubricants.webp`
+* `src/assets/images/product-specialty-products.webp`
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* `sharp` (devDependency, used only for the one-off local image optimization script; not bundled into the production app)
+
+Reason:
+Resolve the image-size issues flagged as pending in the Phase 4 and Phase 5 notes and complete the required performance optimization phase: image compression, correct eager/lazy loading, and layout-shift prevention.
+
+Testing:
+
+* `npm run lint` passed.
+* `npm run build` passed; confirmed both the WebP and PNG variants are emitted into `dist/assets/` with their new, much smaller sizes.
+* Responsive/visual check pending Phase 18 final QA.
+
+Git Commit:
+`pending`
+
+Next:
+
+* Review diff.
+* Commit and push Phase 17.
+* Start Phase 18 after user approval.

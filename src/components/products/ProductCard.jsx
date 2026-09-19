@@ -9,7 +9,17 @@ export default function ProductCard({ product }) {
         to={`/products/${product.slug}`}
         aria-label={`Explore ${product.title}`}
       >
-        <img src={product.image} alt={product.imageAlt} loading="lazy" />
+        <picture>
+          {product.imageWebp ? <source srcSet={product.imageWebp} type="image/webp" /> : null}
+          <img
+            src={product.image}
+            alt={product.imageAlt}
+            width={product.imageWidth}
+            height={product.imageHeight}
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
         <span className="product-card__badge">{product.category}</span>
       </Link>
       <div className="product-card__body">

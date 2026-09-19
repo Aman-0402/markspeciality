@@ -4,7 +4,7 @@
 
 This project is a modern React implementation inspired by the structure and design direction of Mark Speciality India Pvt. Ltd.'s public website. The goal is to build a premium, responsive, accessible, and SEO-friendly industrial website for lubricant products and business enquiries.
 
-Phase 1 established the React/Vite foundation, routing shell, project structure, documentation, and development workflow. Phase 2 added the global design system. Phase 3 added the responsive header and navigation foundation. Phase 4 added the homepage hero. Phase 5 added the product category section. Phase 6 added the Why Choose Us feature section. Phase 7 added the Industries We Serve section. Phase 8 added the reusable consultation CTA, site footer, and back-to-top control. Phase 9 added the full About page. Phase 10 added the reusable, data-driven product overview and product category page architecture. Phase 11 completed all four product category pages, each with a distinct accent-color visual identity. Phase 12 added the Our Brands page. Phase 13 added the complete blog system. Phase 14 added the contact page with validated form handling. Phase 15 added site-wide SEO: structured data, sitemap, and robots updates. Phase 16 completed an accessibility and responsive QA pass, fixing a site-wide color contrast issue and mobile menu focus management. Additional sections and production content will be implemented phase by phase.
+Phase 1 established the React/Vite foundation, routing shell, project structure, documentation, and development workflow. Phase 2 added the global design system. Phase 3 added the responsive header and navigation foundation. Phase 4 added the homepage hero. Phase 5 added the product category section. Phase 6 added the Why Choose Us feature section. Phase 7 added the Industries We Serve section. Phase 8 added the reusable consultation CTA, site footer, and back-to-top control. Phase 9 added the full About page. Phase 10 added the reusable, data-driven product overview and product category page architecture. Phase 11 completed all four product category pages, each with a distinct accent-color visual identity. Phase 12 added the Our Brands page. Phase 13 added the complete blog system. Phase 14 added the contact page with validated form handling. Phase 15 added site-wide SEO: structured data, sitemap, and robots updates. Phase 16 completed an accessibility and responsive QA pass, fixing a site-wide color contrast issue and mobile menu focus management. Phase 17 optimized image delivery, cutting total local image weight from roughly 11.4MB to under 400KB for WebP-capable browsers. Additional sections and production content will be implemented phase by phase.
 
 ## Features
 
@@ -52,6 +52,7 @@ Planned features include advanced navigation, product browsing, blog content, co
 * React Helmet Async
 * Modular CSS design system
 * ESLint
+* sharp (dev-only, image optimization script)
 
 ## Installation
 
@@ -137,7 +138,7 @@ The app includes semantic route structure, a skip link, visible loading status, 
 
 ## Performance
 
-Routes are lazy-loaded and the app uses a small dependency set. Future phases will optimize images, code splitting, fonts, and layout stability.
+Routes are lazy-loaded per page and the app uses a small dependency set (React, React Router, Framer Motion, Lucide React, React Helmet Async). All local images (`src/assets/images/`) are served as `<picture>` elements with a compressed WebP source and a resized/compressed PNG fallback, generated with `sharp`; the hero and product images together dropped from roughly 11.4MB to under 400KB for WebP-capable browsers. Every image sets explicit `width`/`height` to prevent layout shift, the hero image uses `loading="eager"`/`fetchPriority="high"` for LCP, and below-the-fold images use `loading="lazy"`. No web fonts are loaded over the network — the type stack falls back to system fonts, so there is no font-loading cost.
 
 ## Contact Form Behavior
 
