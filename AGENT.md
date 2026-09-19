@@ -6,7 +6,7 @@ Mark Speciality React Website
 
 ## Current Status
 
-Phase 5 product category section completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, modular styling foundations, responsive navigation, a polished homepage hero, and a product category section.
+Phase 6 Why Choose Us section completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, modular styling foundations, responsive navigation, a polished homepage hero, a product category section, and a feature/value proposition section.
 
 ## Progress
 
@@ -343,3 +343,57 @@ Next:
 Notes:
 
 * Product category PNG files are approximately 2.2-2.5 MB each and should be optimized during the performance optimization phase.
+
+### [2026-09-19 21] Update #006
+
+Status:
+Completed
+
+Work Completed:
+
+* Added structured feature data for the Why Choose Mark Speciality section.
+* Created reusable `FeatureCard` component with Lucide icons and Framer Motion staggered reveal.
+* Created `WhyChooseUs` homepage section.
+* Added six required feature cards: Unmatched Quality, Customized Solutions, Dedicated Support, Proven Industry Expertise, Innovation-Driven Approach, and Competitive Pricing.
+* Added responsive dark industrial section styling with hover interactions, sticky supporting content, and mobile-friendly single-column fallback.
+* Updated the homepage to render the Why Choose Us section after products.
+* Updated README documentation to mention the feature/value section.
+
+Files Created:
+
+* `src/components/home/FeatureCard.jsx`
+* `src/components/home/WhyChooseUs.jsx`
+* `src/data/features.js`
+
+Files Modified:
+
+* `AGENT.md`
+* `README.md`
+* `src/pages/Home.jsx`
+* `src/styles/home.css`
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None
+
+Reason:
+Implement the required Why Choose Us section with data-backed reusable cards, icons, responsive layout, and restrained animations.
+
+Testing:
+
+* `npm run lint` passed.
+* `npm run build` passed.
+* Responsive check pending for later visual QA phases.
+
+Git Commit:
+`pending`
+
+Next:
+
+* Review diff.
+* Commit and push Phase 6.
+* Start Phase 7 after user approval.

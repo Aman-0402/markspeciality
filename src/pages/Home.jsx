@@ -1,6 +1,7 @@
 import SEO from '../components/common/SEO.jsx';
 import HomeHero from '../components/home/HomeHero.jsx';
 import HomeProducts from '../components/home/HomeProducts.jsx';
+import WhyChooseUs from '../components/home/WhyChooseUs.jsx';
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       />
       <HomeHero />
       <HomeProducts />
+      <WhyChooseUs />
     </>
   );
 }
