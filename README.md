@@ -4,11 +4,9 @@
 
 This project is a modern React implementation inspired by the structure and design direction of Mark Speciality India Pvt. Ltd.'s public website. The goal is to build a premium, responsive, accessible, and SEO-friendly industrial website for lubricant products and business enquiries.
 
-Phase 1 established the React/Vite foundation, routing shell, project structure, documentation, and development workflow. Phase 2 added the global design system. Phase 3 added the responsive header and navigation foundation. Phase 4 added the homepage hero. Phase 5 added the product category section. Phase 6 added the Why Choose Us feature section. Phase 7 added the Industries We Serve section. Phase 8 added the reusable consultation CTA, site footer, and back-to-top control. Phase 9 added the full About page. Phase 10 added the reusable, data-driven product overview and product category page architecture. Phase 11 completed all four product category pages, each with a distinct accent-color visual identity. Phase 12 added the Our Brands page. Phase 13 added the complete blog system. Phase 14 added the contact page with validated form handling. Phase 15 added site-wide SEO: structured data, sitemap, and robots updates. Phase 16 completed an accessibility and responsive QA pass, fixing a site-wide color contrast issue and mobile menu focus management. Phase 17 optimized image delivery, cutting total local image weight from roughly 11.4MB to under 400KB for WebP-capable browsers. Additional sections and production content will be implemented phase by phase.
+The site was built phase by phase (see `AGENT.md` for the full development log): project setup and design system, header/navigation, homepage sections (hero, products, Why Choose Us, Industries, CTA, footer), the About page, a reusable data-driven product system covering all four product category pages, the Brands page, a full blog system, a validated Contact page, site-wide SEO (structured data, sitemap, robots.txt), an accessibility and responsive QA pass, and image performance optimization.
 
 ## Features
-
-Current Phase 1 foundation:
 
 * Vite React application shell
 * React Router route foundation
@@ -38,8 +36,8 @@ Current Phase 1 foundation:
 * Blog article detail page with breadcrumb, metadata, related articles, and share controls (native share, email, copy link)
 * Contact page with opening times, customer support, corporate/factory addresses, phone/email links, and a validated contact form with loading and success states
 * Site-wide JSON-LD structured data (Organization, BreadcrumbList, Product, Article), `sitemap.xml`, and an updated `robots.txt`
-
-Planned features include advanced navigation, product browsing, blog content, contact form validation, SEO structured data, responsive polish, and performance optimization.
+* Accessibility pass: fixed color contrast, mobile menu focus trapping/restoration, and touch target sizing
+* Optimized WebP + compressed PNG image delivery with explicit dimensions to prevent layout shift
 
 ## Tech Stack
 
@@ -118,15 +116,17 @@ Important directories:
 * `/blog`
 * `/blog/:slug`
 * `/contact`
+* `/privacy-policy`
+* `/terms`
 * `*` custom 404 route
 
 ## Components
 
-The initial architecture includes reusable layout, SEO, loading, scroll restoration, header, top bar, desktop navigation, and mobile menu components. Future phases will add footer, product cards, blog cards, contact form, breadcrumbs, CTA sections, and product category layouts.
+Reusable components are organized by domain: `components/common/` (SEO, ButtonLink, SectionHeading, Breadcrumb, CTASection, BackToTop, PageLoader, ScrollToTop), `components/layout/` (Header, TopBar, MobileMenu, Footer, MainLayout), `components/home/` (HomeHero, HomeProducts, WhyChooseUs, FeatureCard, Industries, IndustryCard), `components/about/` (AboutHero, ExpandableSection), `components/products/` (ProductCard, ProductGrid, ProductHero, BenefitList, RelatedProducts), `components/brands/` (BrandCard), `components/blog/` (BlogCard, FeaturedArticle, ShareButtons), and `components/contact/` (ContactForm). Pages compose these components with data from `src/data/` rather than duplicating markup per route.
 
 ## Responsive Design
 
-The shell includes responsive containers, mobile-safe typography, fluid section spacing, and responsive grid utilities. Full responsive QA across target breakpoints will be completed in the dedicated accessibility and responsive phase.
+The site uses responsive containers, fluid typography (`clamp()`), and responsive grid utilities, verified at 320, 375, 390, 430, 768, 1024, 1280, 1440, and 1920px in Phase 16.
 
 ## SEO
 
@@ -177,14 +177,12 @@ Each completed phase should be validated, documented in `AGENT.md`, committed, a
 
 ## Future Improvements
 
-* Premium responsive navigation
-* Full industrial design system
-* Product data architecture
-* Blog search and article pages
-* Contact form API integration
-* Structured data and sitemap generation
-* Image optimization workflow
-* Final Lighthouse and accessibility pass
+* Connect the contact form to a real backend/email API
+* Replace placeholder corporate/factory addresses with verified addresses
+* Replace synthesized brand-line names in `src/data/brands.js` with real brand/logo assets if the project owner has usage rights
+* Expand the blog with more articles and real cover photography
+* Add automated tests (unit/e2e)
+* Run a full Lighthouse audit and address any remaining findings
 
 ## License / Content Notice
 
