@@ -6,7 +6,7 @@ Mark Speciality React Website
 
 ## Current Status
 
-Phase 12 Our Brands page completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, modular styling foundations, responsive navigation, a polished homepage hero, a product category section, a feature/value proposition section, an industries section, a reusable consultation CTA, a site-wide footer with back-to-top control, a full About page, a reusable data-driven product system covering all four product category pages, and an Our Brands page presenting four Mark Speciality brand lines tied to the product categories.
+Phase 13 Blog System completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, modular styling foundations, responsive navigation, a polished homepage hero, a product category section, a feature/value proposition section, an industries section, a reusable consultation CTA, a site-wide footer with back-to-top control, a full About page, a reusable data-driven product system covering all four product category pages, an Our Brands page, and a complete blog system (listing with search/category filters and featured article, plus a full article detail page with related articles and share controls).
 
 ## Progress
 
@@ -723,3 +723,60 @@ Next:
 * Review diff.
 * Commit and push Phase 12.
 * Start Phase 13 after user approval.
+
+### [2026-09-19 23] Update #013
+
+Status:
+Completed
+
+Work Completed:
+
+* Created `src/data/blogs.js` with six locally authored technical articles (Product Guides, Maintenance Tips, Industry Insights categories), one marked `featured`, each with slug, author, date, read time, accent color, and paragraph content array. Added `getBlogPost(slug)` and `getRelatedPosts(post)` helpers.
+* Created `BlogCard` (accent-gradient cover placeholder, category badge, date, read time, excerpt, Read More link) and `FeaturedArticle` (larger hero-style card) components.
+* Created `ShareButtons` component: native Web Share API with clipboard-copy fallback, mailto link, and a dedicated copy-link button with a "Link copied" confirmation state.
+* Rebuilt `Blog.jsx`: breadcrumb, hero, featured article, client-side search input, category filter chips, responsive blog grid, and an empty-state message when no articles match.
+* Rebuilt `BlogDetail.jsx`: breadcrumb, article hero with date/read time/author, accent cover block, full article content, share controls, related articles (same category), and a closing consultation CTA. Invalid slugs redirect to the 404 page via `Navigate`.
+* Added `blog.css` covering the featured article, search/filter bar, blog grid/cards, and article detail styling with responsive breakpoints.
+* Used accent-gradient placeholder covers (no photographs) for blog posts since no real article imagery or rights were provided, consistent with the content/asset rule used for the Brands page in Phase 12.
+
+Files Created:
+
+* `src/components/blog/BlogCard.jsx`
+* `src/components/blog/FeaturedArticle.jsx`
+* `src/components/blog/ShareButtons.jsx`
+* `src/data/blogs.js`
+* `src/styles/blog.css`
+
+Files Modified:
+
+* `AGENT.md`
+* `README.md`
+* `src/pages/Blog.jsx`
+* `src/pages/BlogDetail.jsx`
+* `src/styles/global.css`
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None
+
+Reason:
+Implement the required blog system: listing page with featured article, search, categories, blog cards, and an article detail page with breadcrumb, metadata, related articles, share controls, and CTA.
+
+Testing:
+
+* `npm run lint` passed.
+* `npm run build` passed.
+* Responsive check pending for later visual QA phase.
+
+Git Commit:
+`pending`
+
+Next:
+
+* Review diff.
+* Commit and push Phase 13.
+* Start Phase 14 after user approval.
