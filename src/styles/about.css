@@ -3,29 +3,21 @@
   color: var(--color-white);
 }
 
-.about-overview {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-6);
+.about-overview__intro {
+  max-width: 780px;
+  margin: 0 auto var(--space-16);
+  text-align: center;
 }
 
-.about-overview__card {
-  padding: var(--space-8);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  background: var(--color-surface);
-  box-shadow: var(--shadow-xs);
+.about-overview__intro h2 {
+  margin: 0 0 var(--space-4);
 }
 
-.about-overview__card h2 {
-  margin: 0 0 var(--space-3);
-  font-size: 1.2rem;
-}
-
-.about-overview__card p {
+.about-overview__intro p {
   margin: 0;
   color: var(--color-text-muted);
-  line-height: 1.7;
+  font-size: 1.1rem;
+  line-height: 1.75;
 }
 
 .about-values-grid {
@@ -85,11 +77,58 @@
   font-size: 0.94rem;
 }
 
+.capability-rows {
+  display: grid;
+  gap: var(--space-16);
+  margin-top: var(--space-10);
+}
+
+.capability-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-10);
+}
+
+.capability-row--reverse {
+  direction: rtl;
+}
+
+.capability-row--reverse > * {
+  direction: ltr;
+}
+
+.capability-row__media {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.capability-row__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.capability-row__copy h3 {
+  margin: 0 0 var(--space-3);
+  font-size: 1.4rem;
+}
+
+.capability-row__copy p {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  font-size: 1.02rem;
+}
+
 .about-sections-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-6);
-  margin-top: var(--space-10);
+  margin-top: var(--space-16);
 }
 
 .expandable-section {
@@ -146,6 +185,16 @@
 @media (max-width: 720px) {
   .about-sections-grid {
     grid-template-columns: 1fr;
+  }
+
+  .capability-row,
+  .capability-row--reverse {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+
+  .capability-rows {
+    gap: var(--space-10);
   }
 }
 

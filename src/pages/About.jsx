@@ -2,11 +2,14 @@ import CTASection from '../components/common/CTASection.jsx';
 import SectionHeading from '../components/common/SectionHeading.jsx';
 import SEO from '../components/common/SEO.jsx';
 import AboutHero from '../components/about/AboutHero.jsx';
+import CapabilityRow from '../components/about/CapabilityRow.jsx';
 import ExpandableSection from '../components/about/ExpandableSection.jsx';
 import { aboutSections, companyOverview, companyStrengths, coreValues } from '../data/about.js';
 import { buildBreadcrumbSchema } from '../utils/structuredData.js';
 
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'About Us' }];
+const visualSections = aboutSections.filter((section) => section.image);
+const textSections = aboutSections.filter((section) => !section.image);
 
 export default function About() {
   return (
@@ -20,18 +23,31 @@ export default function About() {
       <AboutHero />
 
       <section className="section section--surface">
-        <div className="container about-overview">
-          <div className="about-overview__card">
+        <div className="container">
+          <div className="about-overview__intro">
             <h2>Who We Are</h2>
             <p>{companyOverview.intro}</p>
           </div>
-          <div className="about-overview__card">
-            <h2>Our Vision</h2>
-            <p>{companyOverview.vision}</p>
-          </div>
-          <div className="about-overview__card">
-            <h2>Our Mission</h2>
-            <p>{companyOverview.mission}</p>
+          <div className="capability-rows">
+            <CapabilityRow
+              section={{
+                title: 'Our Vision',
+                body: companyOverview.vision,
+                image: companyOverview.visionImage,
+                imageWebp: companyOverview.visionImageWebp,
+                imageAlt: companyOverview.visionImageAlt,
+              }}
+            />
+            <CapabilityRow
+              reverse
+              section={{
+                title: 'Our Mission',
+                body: companyOverview.mission,
+                image: companyOverview.missionImage,
+                imageWebp: companyOverview.missionImageWebp,
+                imageAlt: companyOverview.missionImageAlt,
+              }}
+            />
           </div>
         </div>
       </section>
@@ -87,8 +103,13 @@ export default function About() {
             copy="Explore how we manufacture, innovate, and support customers over the long term."
             align="center"
           />
+          <div className="capability-rows">
+            {visualSections.map((section, index) => (
+              <CapabilityRow section={section} reverse={index % 2 === 1} key={section.id} />
+            ))}
+          </div>
           <div className="about-sections-grid">
-            {aboutSections.map((section, index) => (
+            {textSections.map((section, index) => (
               <ExpandableSection section={section} index={index} key={section.id} />
             ))}
           </div>

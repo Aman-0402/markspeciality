@@ -1230,3 +1230,55 @@ Next:
 * Review diff.
 * Commit and push.
 * Consider adding photography to the About page's "Capability, Quality & Growth" section (still text-only) if further visual polish is wanted.
+
+### [2026-09-20] Update #022
+
+Status:
+Completed
+
+Work Completed:
+
+* User provided the URL of the real, live markspeciality.com About page and asked to pull images from it. Fetched the real page's HTML and downloaded three usable real photos directly from the client's own site: two genuine lab quality-control photos (matching the real site's own "Our Vision" and "Our Mission" captions) and one real product-lineup photo showing actual manufactured MSL drums, grease tubs, and bottles. (The page's logo file returned a 404 on the live site itself, so it was not used.) Optimized all three with `sharp` into WebP + compressed PNG pairs (`about-vision-lab`, `about-mission-lab`, `about-product-lineup`), matching the project's existing image pipeline.
+* Created `CapabilityRow` component (alternating image/text row with reveal animation) and used it to rebuild the About page's "Who We Are" section: intro paragraph, then a real photo alongside "Our Vision" and another alongside "Our Mission", replacing the previous plain three-card text grid.
+* Swapped the "Manufacturing Capability" row's image (previously a stand-in industrial photo) for the real product-lineup photo, since it's a more accurate, authentic representation of what the company actually manufactures.
+* **Important discovery to flag to the user:** the real markspeciality.com page reveals the company's actual product-line branding is **"MSL" / "Machines Lifeline"**, with a second real brand, **"VORSTAB — Innovative Chemistry Way Ahead"**. This does not match the synthesized brand names built in Phase 12 (`Mark Drive`, `Mark Industrial`, `Mark Shield`, `Mark Specialty` in `src/data/brands.js`), which were invented placeholders created when no real brand data was available. The Brands page has not been changed in this update — it still shows the placeholder names — pending explicit user confirmation on whether to replace them with the real "MSL / Machines Lifeline" and "VORSTAB" branding.
+
+Files Created:
+
+* `src/assets/images/about-mission-lab.png` / `.webp`
+* `src/assets/images/about-product-lineup.png` / `.webp`
+* `src/assets/images/about-vision-lab.png` / `.webp`
+* `src/components/about/CapabilityRow.jsx`
+
+Files Modified:
+
+* `AGENT.md`
+* `src/data/about.js`
+* `src/pages/About.jsx`
+* `src/styles/about.css`
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None
+
+Reason:
+Directly implements the user's request to pull real images from the company's own live website for the About page, replacing generic stand-in photography with authentic company imagery.
+
+Testing:
+
+* `npm run lint` passed.
+* `npm run build` passed.
+* Verified visually via Playwright screenshot that the real lab photos and product-lineup photo render correctly in the new alternating layout.
+
+Git Commit:
+`pending`
+
+Next:
+
+* Review diff.
+* Commit and push.
+* Ask the user whether to replace the placeholder Brands page content (`Mark Drive`/`Mark Industrial`/`Mark Shield`/`Mark Specialty`) with the real "MSL / Machines Lifeline" and "VORSTAB" branding now that it's known.
