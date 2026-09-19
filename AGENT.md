@@ -6,7 +6,7 @@ Mark Speciality React Website
 
 ## Current Status
 
-Phase 13 Blog System completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, modular styling foundations, responsive navigation, a polished homepage hero, a product category section, a feature/value proposition section, an industries section, a reusable consultation CTA, a site-wide footer with back-to-top control, a full About page, a reusable data-driven product system covering all four product category pages, an Our Brands page, and a complete blog system (listing with search/category filters and featured article, plus a full article detail page with related articles and share controls).
+Phase 14 Contact Page completed. The repository now contains a Vite React application shell, route foundation, initial documentation, validation tooling, modular styling foundations, responsive navigation, a polished homepage hero, a product category section, a feature/value proposition section, an industries section, a reusable consultation CTA, a site-wide footer with back-to-top control, a full About page, a reusable data-driven product system covering all four product category pages, an Our Brands page, a complete blog system, and a Contact page with validated form handling and loading/success/error states.
 
 ## Progress
 
@@ -780,3 +780,56 @@ Next:
 * Review diff.
 * Commit and push Phase 13.
 * Start Phase 14 after user approval.
+
+### [2026-09-19 23] Update #014
+
+Status:
+Completed
+
+Work Completed:
+
+* Added placeholder `corporateAddress` and `factoryAddress` fields to `src/data/contact.js`, clearly commented as placeholders to replace with verified addresses (no real address data was provided for this project).
+* Created `ContactForm` component: controlled fields (Full Name, Email, Phone, Company, Subject, Message), client-side validation (required fields, email format, minimum message length), `aria-invalid`/`aria-describedby` wiring on invalid fields, and idle/submitting/success/error states with a spinner and a success confirmation screen with a "Send Another Message" reset.
+* Added a `submitContactForm()` function that simulates a network call via a timed `Promise`, with a comment marking it as the extension point for a real backend call.
+* Rebuilt `Contact.jsx`: breadcrumb, hero, info cards (Opening Times, Customer Support, Corporate Address, Factory Address, Phone, Email, each phone/email card wrapped in a `tel:`/`mailto:` link), and the contact form panel.
+* Added `contact.css` covering the two-column contact layout, info cards, form status panels (success/error), and the loading spinner animation, respecting `prefers-reduced-motion`.
+* Documented contact form behavior and the placeholder address caveat in `README.md`.
+
+Files Created:
+
+* `src/components/contact/ContactForm.jsx`
+* `src/styles/contact.css`
+
+Files Modified:
+
+* `AGENT.md`
+* `README.md`
+* `src/data/contact.js`
+* `src/pages/Contact.jsx`
+* `src/styles/global.css`
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None
+
+Reason:
+Implement the required premium contact page: contact details, corporate/factory addresses, phone/email links, and a validated contact form with loading, success, and error states, structured so a real API can be connected later without changing the form's markup or validation logic.
+
+Testing:
+
+* `npm run lint` passed.
+* `npm run build` passed.
+* Responsive check pending for later visual QA phase.
+
+Git Commit:
+`pending`
+
+Next:
+
+* Review diff.
+* Commit and push Phase 14.
+* Start Phase 15 after user approval.

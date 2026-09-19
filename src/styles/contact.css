@@ -1,0 +1,121 @@
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+  gap: var(--space-10);
+  align-items: start;
+}
+
+.contact-info-grid {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.contact-info-card {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-6);
+  text-decoration: none;
+  color: inherit;
+}
+
+.contact-info-card__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: var(--space-2);
+  border-radius: var(--radius-md);
+  background: rgba(211, 132, 42, 0.12);
+  color: var(--color-accent-strong);
+}
+
+.contact-info-card h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.contact-info-card p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+.contact-form-panel {
+  padding: var(--space-8);
+}
+
+.field--full {
+  grid-column: 1 / -1;
+}
+
+.form-status {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+  padding: var(--space-10);
+  text-align: center;
+}
+
+.form-status--success h3 {
+  margin: 0;
+  color: var(--color-success-600);
+}
+
+.form-status--success p {
+  margin: 0;
+  color: var(--color-text-muted);
+  max-width: 420px;
+}
+
+.form-status--success svg {
+  color: var(--color-success-600);
+}
+
+.form-status--error {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  margin-bottom: var(--space-5);
+  border: 1px solid rgba(186, 47, 42, 0.35);
+  border-radius: var(--radius-md);
+  background: rgba(186, 47, 42, 0.08);
+  color: var(--color-danger-600);
+  font-weight: 700;
+}
+
+.spin {
+  animation: spin 900ms linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spin {
+    animation: none;
+  }
+}
+
+@media (max-width: 980px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .field--full {
+    grid-column: auto;
+  }
+}

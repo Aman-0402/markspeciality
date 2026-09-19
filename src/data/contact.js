@@ -7,6 +7,9 @@ export const contactInfo = {
   supportPhoneTel: '+912225394009',
   fax: '+91 22 2538 1446',
   website: 'https://markspeciality.com/',
+  // Placeholder addresses: replace with verified corporate/factory addresses before production launch.
+  corporateAddress: 'Mark Speciality India Pvt. Ltd., Mumbai, Maharashtra, India',
+  factoryAddress: 'Mark Speciality India Pvt. Ltd. Manufacturing Unit, Maharashtra, India',
 };
 
 export const socialLinks = [

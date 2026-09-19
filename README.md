@@ -4,7 +4,7 @@
 
 This project is a modern React implementation inspired by the structure and design direction of Mark Speciality India Pvt. Ltd.'s public website. The goal is to build a premium, responsive, accessible, and SEO-friendly industrial website for lubricant products and business enquiries.
 
-Phase 1 established the React/Vite foundation, routing shell, project structure, documentation, and development workflow. Phase 2 added the global design system. Phase 3 added the responsive header and navigation foundation. Phase 4 added the homepage hero. Phase 5 added the product category section. Phase 6 added the Why Choose Us feature section. Phase 7 added the Industries We Serve section. Phase 8 added the reusable consultation CTA, site footer, and back-to-top control. Phase 9 added the full About page. Phase 10 added the reusable, data-driven product overview and product category page architecture. Phase 11 completed all four product category pages, each with a distinct accent-color visual identity. Phase 12 added the Our Brands page. Phase 13 added the complete blog system. Additional sections and production content will be implemented phase by phase.
+Phase 1 established the React/Vite foundation, routing shell, project structure, documentation, and development workflow. Phase 2 added the global design system. Phase 3 added the responsive header and navigation foundation. Phase 4 added the homepage hero. Phase 5 added the product category section. Phase 6 added the Why Choose Us feature section. Phase 7 added the Industries We Serve section. Phase 8 added the reusable consultation CTA, site footer, and back-to-top control. Phase 9 added the full About page. Phase 10 added the reusable, data-driven product overview and product category page architecture. Phase 11 completed all four product category pages, each with a distinct accent-color visual identity. Phase 12 added the Our Brands page. Phase 13 added the complete blog system. Phase 14 added the contact page with validated form handling. Additional sections and production content will be implemented phase by phase.
 
 ## Features
 
@@ -36,6 +36,7 @@ Current Phase 1 foundation:
 * Our Brands page presenting four Mark Speciality brand lines (Mark Drive, Mark Industrial, Mark Shield, Mark Specialty), each linked to its matching product category
 * Blog listing page with featured article, client-side search, category filters, and responsive blog cards
 * Blog article detail page with breadcrumb, metadata, related articles, and share controls (native share, email, copy link)
+* Contact page with opening times, customer support, corporate/factory addresses, phone/email links, and a validated contact form with loading and success states
 
 Planned features include advanced navigation, product browsing, blog content, contact form validation, SEO structured data, responsive polish, and performance optimization.
 
@@ -139,7 +140,7 @@ Routes are lazy-loaded and the app uses a small dependency set. Future phases wi
 
 ## Contact Form Behavior
 
-No backend is connected yet. The planned contact form will validate client-side and simulate a successful submission until an API endpoint is provided.
+No backend is connected yet. The form (`src/components/contact/ContactForm.jsx`) validates client-side (required fields, email format, minimum message length) and shows loading, success, and error states. Submission currently calls a local `submitContactForm()` function that simulates a network request with a short delay; replace its body with a real `fetch` call to a backend endpoint when one is available. Corporate and factory addresses in `src/data/contact.js` are placeholders and should be replaced with verified addresses before production launch.
 
 ## Environment Variables
 
