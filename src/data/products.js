@@ -17,6 +17,13 @@ export const productCategories = [
     benefits: ['Engine Protection', 'Fuel Efficiency', 'Smooth Performance'],
     applications: ['Engine oils', 'Transmission fluids', 'Gear oils'],
     features: ['Thermal stability', 'Wear control', 'Deposit protection'],
+    performanceAdvantages: [
+      'Reduced Friction',
+      'Wear Protection',
+      'Thermal Stability',
+      'Longer Service Life',
+    ],
+    industriesServed: ['automotive', 'engineering', 'construction'],
   },
   {
     id: 'industrial-lubricants',
@@ -31,6 +38,13 @@ export const productCategories = [
     benefits: ['Reduced Wear', 'Longer Service Life', 'Equipment Reliability'],
     applications: ['Hydraulic systems', 'Gearboxes', 'Compressors'],
     features: ['Oxidation resistance', 'Load carrying', 'Corrosion control'],
+    performanceAdvantages: [
+      'Improved Equipment Reliability',
+      'Corrosion Protection',
+      'Wear Protection',
+      'Thermal Stability',
+    ],
+    industriesServed: ['manufacturing', 'steel', 'cement', 'power-generation'],
   },
   {
     id: 'specialty-products',
@@ -45,6 +59,12 @@ export const productCategories = [
     benefits: ['Application-Specific', 'Performance Focused', 'Technical Support'],
     applications: ['Process oils', 'Metalworking fluids', 'Specialty fluids'],
     features: ['Custom formulation', 'Surface protection', 'Process compatibility'],
+    performanceAdvantages: [
+      'Corrosion Protection',
+      'Improved Equipment Reliability',
+      'Reduced Friction',
+    ],
+    industriesServed: ['pharmaceuticals', 'food-processing', 'textile'],
   },
   {
     id: 'grease',
@@ -59,6 +79,12 @@ export const productCategories = [
     benefits: ['Extreme Protection', 'Water Resistance', 'Stable Lubrication'],
     applications: ['Bearings', 'Chassis points', 'Heavy machinery'],
     features: ['Adhesion strength', 'Mechanical stability', 'Rust protection'],
+    performanceAdvantages: [
+      'Wear Protection',
+      'Corrosion Protection',
+      'Longer Service Life',
+    ],
+    industriesServed: ['mining', 'construction', 'marine'],
   },
 ];
 
