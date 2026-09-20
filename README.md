@@ -31,7 +31,7 @@ The site was built phase by phase (see `AGENT.md` for the full development log):
 * About page with vision/mission overview, core values, company strengths, and expandable capability sections (Manufacturing Capability, Innovation, Sustainability, Quality Commitment, Customer Partnerships, Future Vision)
 * Data-driven Products overview page and reusable product category template with breadcrumbs, key benefits, typical applications, performance advantages, industries served, related products, and a consultation CTA
 * Four fully working product category pages (Automotive Lubricants, Industrial Lubricants, Greases, Specialty Products), each with its own accent-color visual identity
-* Our Brands page presenting four Mark Speciality brand lines (Mark Drive, Mark Industrial, Mark Shield, Mark Specialty), each linked to its matching product category
+* Our Brands page presenting the two real brand families, Vorstab ("Innovative Chemistry Way Ahead") and Mark Speciality ("Machines Lifeline"), each with its Industrial and Metal/Metalworking lines, using real photography from the live company website
 * Blog listing page with featured article, client-side search, category filters, and responsive blog cards
 * Blog article detail page with breadcrumb, metadata, related articles, and share controls (native share, email, copy link)
 * Contact page with opening times, customer support, corporate/factory addresses, phone/email links, and a validated contact form with loading and success states
@@ -179,7 +179,7 @@ Each completed phase should be validated, documented in `AGENT.md`, committed, a
 
 * Connect the contact form to a real backend/email API
 * Replace placeholder corporate/factory addresses with verified addresses
-* Replace synthesized brand-line names in `src/data/brands.js` with real brand/logo assets if the project owner has usage rights
+* Add real Vorstab/Mark Speciality logo marks to brand cards (the live site's own logo assets were unavailable/404 at time of writing)
 * Expand the blog with more articles and real cover photography
 * Add automated tests (unit/e2e)
 * Run a full Lighthouse audit and address any remaining findings

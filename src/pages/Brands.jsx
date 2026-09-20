@@ -2,7 +2,7 @@ import SEO from '../components/common/SEO.jsx';
 import SectionHeading from '../components/common/SectionHeading.jsx';
 import CTASection from '../components/common/CTASection.jsx';
 import BrandCard from '../components/brands/BrandCard.jsx';
-import { brands } from '../data/brands.js';
+import { brandFamilies, brands } from '../data/brands.js';
 import { buildBreadcrumbSchema } from '../utils/structuredData.js';
 
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Our Brands' }];
@@ -12,37 +12,46 @@ export default function Brands() {
     <>
       <SEO
         title="Our Brands | Mark Speciality"
-        description="Explore Mark Speciality's dedicated brand lines for automotive, industrial, grease, and specialty lubricant applications."
+        description="Explore Vorstab and Mark Speciality's dedicated industrial lubricant and metalworking fluid brand lines."
         path="/brands"
         jsonLd={buildBreadcrumbSchema(breadcrumbItems)}
       />
       <section className="page-section page-section--hero">
         <div className="container">
           <p className="eyebrow">Our Brands</p>
-          <h1>Dedicated Brand Lines For Every Application</h1>
+          <h1>Two Brand Families, Four Specialized Lines</h1>
           <p className="lead">
-            Each brand line focuses on a specific category of lubrication
-            needs, backed by the same quality standards and technical
-            support across the Mark Speciality portfolio.
+            Vorstab and Mark Speciality each cover industrial lubrication and
+            metalworking fluids, backed by the same manufacturing and
+            technical support standards across the portfolio.
           </p>
         </div>
       </section>
 
-      <section className="section section--surface">
-        <div className="container">
-          <SectionHeading
-            eyebrow="Brand Portfolio"
-            title="Four Brands, One Quality Standard"
-            copy="Browse each brand's focus area and jump straight to its product category."
-            align="center"
-          />
-          <div className="brand-grid">
-            {brands.map((brand, index) => (
-              <BrandCard brand={brand} index={index} key={brand.id} />
-            ))}
-          </div>
-        </div>
-      </section>
+      {brandFamilies.map((family, familyIndex) => {
+        const familyBrands = brands.filter((brand) => brand.family === family.id);
+
+        return (
+          <section
+            className={`section brand-family ${familyIndex % 2 === 0 ? 'section--surface' : 'section--muted'}`}
+            style={{ '--brand-accent': family.accentColor }}
+            key={family.id}
+          >
+            <div className="container">
+              <SectionHeading
+                eyebrow={family.tagline}
+                title={family.name}
+                align="center"
+              />
+              <div className="brand-showcase-grid">
+                {familyBrands.map((brand, index) => (
+                  <BrandCard brand={brand} index={index} key={brand.id} />
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      })}
 
       <CTASection
         eyebrow="Have Questions?"

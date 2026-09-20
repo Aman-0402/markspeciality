@@ -1282,3 +1282,56 @@ Next:
 * Review diff.
 * Commit and push.
 * Ask the user whether to replace the placeholder Brands page content (`Mark Drive`/`Mark Industrial`/`Mark Shield`/`Mark Specialty`) with the real "MSL / Machines Lifeline" and "VORSTAB" branding now that it's known.
+
+### [2026-09-20] Update #023
+
+Status:
+Completed
+
+Work Completed:
+
+* User confirmed replacing the placeholder Brands page with real branding, and asked for a UI redesign. Fetched the real site's dedicated brands page (`https://markspeciality.com/our-brands-vorstab-industrial-lubricants/`) and found the actual structure: two brand families, **Vorstab** ("Innovative Chemistry Way Ahead") and **Mark Speciality** ("Machines Lifeline"), each with an **Industrial** line and a **Metal/Metalworking** line — four real brand/product lines total, each backed by a downloadable brochure PDF on the live site.
+* Downloaded the four real, full-resolution photos used for each line on the live site (amber industrial oil pours and CNC metalworking coolant shots) and optimized them with `sharp` into WebP + PNG pairs (`brand-vorstab-industrial`, `brand-vorstab-metal`, `brand-mark-industrial`, `brand-mark-metal`).
+* Rewrote `src/data/brands.js`: replaced the four invented brand names (Mark Drive/Industrial/Shield/Specialty) with the four real lines, added a `brandFamilies` export (Vorstab, Mark Speciality) with each family's real tagline and accent color, and mapped each line to its closest matching product category page.
+* Redesigned the Brands page UI: replaced the old flat 4-card grid of small monogram-badge cards with a new structure grouped by brand family — each family gets its own section (alternating surface/muted background, heading colored by the family's accent) containing two large photo-led "showcase" cards (image with category badge overlay, title, description, "View products" link) instead of the previous compact cards. Updated `BrandCard.jsx` and `brands.css` accordingly.
+
+Files Created:
+
+* `src/assets/images/brand-mark-industrial.png` / `.webp`
+* `src/assets/images/brand-mark-metal.png` / `.webp`
+* `src/assets/images/brand-vorstab-industrial.png` / `.webp`
+* `src/assets/images/brand-vorstab-metal.png` / `.webp`
+
+Files Modified:
+
+* `AGENT.md`
+* `README.md`
+* `src/components/brands/BrandCard.jsx`
+* `src/data/brands.js`
+* `src/pages/Brands.jsx`
+* `src/styles/brands.css`
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None
+
+Reason:
+Fix the factually incorrect placeholder brand names identified in Update #022 by replacing them with the company's real brand structure and photography from their own live website, and deliver the visual redesign the user asked for.
+
+Testing:
+
+* `npm run lint` passed.
+* `npm run build` passed.
+* Verified visually via Playwright screenshot: both brand family sections render correctly with real photos, family-specific accent colors, and working "View products" links.
+
+Git Commit:
+`pending`
+
+Next:
+
+* Review diff.
+* Commit and push.
