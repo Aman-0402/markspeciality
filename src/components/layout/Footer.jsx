@@ -2,6 +2,13 @@ import { Clock, Mail, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { contactInfo, socialLinks } from '../../data/contact.js';
 import { mainNavigation, productLinks } from '../../data/navigation.js';
+import InstagramIcon from '../common/icons/InstagramIcon.jsx';
+import YoutubeIcon from '../common/icons/YoutubeIcon.jsx';
+
+const socialIcons = {
+  youtube: YoutubeIcon,
+  instagram: InstagramIcon,
+};
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -23,18 +30,22 @@ export default function Footer() {
             long-term equipment protection.
           </p>
           <ul className="site-footer__social">
-            {socialLinks.map((social) => (
-              <li key={social.label}>
-                <a
-                  href={social.href}
-                  aria-label={social.label}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span aria-hidden="true">{social.label.charAt(0)}</span>
-                </a>
-              </li>
-            ))}
+            {socialLinks.map((social) => {
+              const Icon = socialIcons[social.icon];
+              return (
+                <li key={social.label}>
+                  <a
+                    className={`site-footer__social-link site-footer__social-link--${social.icon}`}
+                    href={social.href}
+                    aria-label={social.label}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icon width={19} height={19} />
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
 

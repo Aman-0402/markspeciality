@@ -30,22 +30,28 @@ export default function About() {
           </div>
           <div className="capability-rows">
             <CapabilityRow
+              index={0}
               section={{
+                eyebrow: 'Where We Are Headed',
                 title: 'Our Vision',
                 body: companyOverview.vision,
                 image: companyOverview.visionImage,
                 imageWebp: companyOverview.visionImageWebp,
                 imageAlt: companyOverview.visionImageAlt,
+                accentColor: 'var(--color-gold-600)',
               }}
             />
             <CapabilityRow
+              index={1}
               reverse
               section={{
+                eyebrow: 'What Drives Us',
                 title: 'Our Mission',
                 body: companyOverview.mission,
                 image: companyOverview.missionImage,
                 imageWebp: companyOverview.missionImageWebp,
                 imageAlt: companyOverview.missionImageAlt,
+                accentColor: 'var(--color-ink-700)',
               }}
             />
           </div>
@@ -105,7 +111,12 @@ export default function About() {
           />
           <div className="capability-rows">
             {visualSections.map((section, index) => (
-              <CapabilityRow section={section} reverse={index % 2 === 1} key={section.id} />
+              <CapabilityRow
+                section={section}
+                index={index}
+                reverse={index % 2 === 1}
+                key={section.id}
+              />
             ))}
           </div>
           <div className="about-sections-grid">

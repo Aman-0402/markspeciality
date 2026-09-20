@@ -78,7 +78,7 @@
   padding: 0;
 }
 
-.site-footer__social a {
+.site-footer__social-link {
   display: grid;
   place-items: center;
   width: 40px;
@@ -86,18 +86,45 @@
   border-radius: var(--radius-pill);
   background: rgba(255, 255, 255, 0.08);
   color: var(--color-white);
-  font-family: var(--font-heading);
-  font-weight: 800;
   text-decoration: none;
   transition:
-    background-color var(--duration-base) var(--ease-standard),
-    transform var(--duration-base) var(--ease-standard);
+    background var(--duration-base) var(--ease-standard),
+    color var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard);
 }
 
-.site-footer__social a:hover,
-.site-footer__social a:focus-visible {
-  background: var(--gradient-accent);
-  transform: translateY(-2px);
+.site-footer__social-link svg {
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.site-footer__social-link:hover,
+.site-footer__social-link:focus-visible {
+  transform: translateY(-3px) scale(1.08);
+}
+
+.site-footer__social-link:hover svg,
+.site-footer__social-link:focus-visible svg {
+  transform: scale(1.12);
+}
+
+.site-footer__social-link--youtube:hover,
+.site-footer__social-link--youtube:focus-visible {
+  background: #ff0000;
+  box-shadow: 0 6px 18px rgba(255, 0, 0, 0.35);
+}
+
+.site-footer__social-link--instagram:hover,
+.site-footer__social-link--instagram:focus-visible {
+  background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+  box-shadow: 0 6px 18px rgba(238, 42, 123, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-footer__social-link,
+  .site-footer__social-link svg {
+    transition: none;
+  }
 }
 
 .site-footer__heading {

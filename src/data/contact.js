@@ -13,7 +13,14 @@ export const contactInfo = {
 };
 
 export const socialLinks = [
-  { label: 'LinkedIn', href: '#', icon: 'linkedin' },
-  { label: 'Facebook', href: '#', icon: 'facebook' },
-  { label: 'Twitter', href: '#', icon: 'twitter' },
+  {
+    label: 'YouTube',
+    href: 'https://www.youtube.com/@MarkSpecialityIndia',
+    icon: 'youtube',
+  },
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/markspecialityofficial/',
+    icon: 'instagram',
+  },
 ];

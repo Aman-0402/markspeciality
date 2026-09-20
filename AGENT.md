@@ -1420,6 +1420,60 @@ Testing:
 * Verified via Playwright: `.brand-showcase__body` padding now computes to `32px 28px 28px` (was `0px`) and `.expandable-section` padding now computes to `28px` (was `0px`). Screenshot confirms the brand card now matches the intended design with proper spacing between the image and the title.
 
 Git Commit:
+633636e
+
+Next:
+
+* Review diff.
+* Commit and push.
+
+### [2026-09-20] Update #026
+
+Status:
+Completed
+
+Work Completed:
+
+* Redesigned `CapabilityRow` (used for About page's Vision/Mission and the three "Capability, Quality & Growth" rows) to fix the "boring, mostly empty" layout the user flagged: added an accent-colored eyebrow label and vertical accent bar next to the heading, a larger heading size, an accent-colored ring/frame around the photo, and a floating numbered badge (01/02/...) overlapping the photo's corner. Each row now takes its accent color from the section's own `accentColor` (Vision = gold, Mission = ink blue, Manufacturing Capability = gold, Innovation = ink blue, Sustainability = safety orange), so the five rows feel distinct rather than identical.
+* Added `eyebrow` and `accentColor` fields to the Vision/Mission data (passed inline in `About.jsx`) and to the three image-backed entries in `src/data/about.js`.
+* Replaced the footer's placeholder social icons (LinkedIn/Facebook/Twitter, all linking to `#`, rendered as plain letter badges since `lucide-react` no longer ships brand icons) with the two real, working social links the user provided: YouTube (`https://www.youtube.com/@MarkSpecialityIndia`) and Instagram (`https://www.instagram.com/markspecialityofficial/`), confirmed against the real site's own HTML. Since this `lucide-react` version has no brand icons, built two small local SVG icon components (`YoutubeIcon`, `InstagramIcon`) instead of using letter badges.
+* Added a hover animation to the footer social icons: each lifts and scales slightly on hover/focus, and takes on its brand color (YouTube red, Instagram's characteristic gradient), respecting `prefers-reduced-motion`.
+* Investigated the user's reported "gap between navbar and hero section" on the Brands page (with a Blog-page screenshot as the "should look like this" reference) — could not reproduce with the current code; the Brands hero is already flush against the header, matching the Blog page. No code change was needed for this specific report.
+
+Files Created:
+
+* `src/components/common/icons/InstagramIcon.jsx`
+* `src/components/common/icons/YoutubeIcon.jsx`
+
+Files Modified:
+
+* `AGENT.md`
+* `src/components/about/CapabilityRow.jsx`
+* `src/components/layout/Footer.jsx`
+* `src/data/about.js`
+* `src/data/contact.js`
+* `src/pages/About.jsx`
+* `src/styles/about.css`
+* `src/styles/footer.css`
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None
+
+Reason:
+Directly implements the user's requests: make the Vision/Mission/Capability rows visually richer, and replace the dead placeholder social links with the two real, working social accounts.
+
+Testing:
+
+* `npm run lint` passed.
+* `npm run build` passed.
+* Verified visually via Playwright: the redesigned capability rows render with the accent frame/bar/badge; footer social icons render correctly and show the expected brand-color hover state (screenshot confirmed YouTube red background on hover).
+
+Git Commit:
 `pending`
 
 Next:

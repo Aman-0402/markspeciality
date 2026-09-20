@@ -86,7 +86,9 @@ export const companyStrengths = [
 export const aboutSections = [
   {
     id: 'manufacturing-capability',
+    eyebrow: 'How We Build',
     title: 'Manufacturing Capability',
+    accentColor: 'var(--color-gold-600)',
     preview:
       'Our production facility follows controlled blending processes and standardized quality checks at every stage.',
     body: 'Our production facility follows controlled blending processes and standardized quality checks at every stage. Raw materials are sourced from qualified suppliers and verified before use, and finished products are tested against defined specifications before they leave the facility. Batch tracking and documentation support consistent quality and traceability across every order, whether it is a small trial quantity or a large recurring supply contract.',
@@ -96,7 +98,9 @@ export const aboutSections = [
   },
   {
     id: 'innovation',
+    eyebrow: 'How We Improve',
     title: 'Innovation',
+    accentColor: 'var(--color-ink-700)',
     preview:
       'Formulation development is guided by real operating conditions reported by customers across served industries.',
     body: 'Formulation development is guided by real operating conditions reported by customers across served industries. Our technical team reviews equipment performance data, application feedback, and emerging industry requirements to refine existing products and develop new ones. This practical, feedback-driven approach helps ensure that innovation translates into measurable performance improvements rather than change for its own sake.',
@@ -106,7 +110,9 @@ export const aboutSections = [
   },
   {
     id: 'sustainability',
+    eyebrow: 'How We Operate',
     title: 'Sustainability',
+    accentColor: 'var(--color-safety-600)',
     preview:
       'Responsible sourcing, efficient processes, and careful handling practices reduce environmental impact.',
     body: 'Responsible sourcing, efficient processes, and careful handling practices reduce environmental impact across our operations. We work to minimize waste during production, encourage responsible disposal and recycling practices among customers where applicable, and continually evaluate formulation choices for opportunities to reduce environmental footprint without compromising product performance.',
