@@ -1576,3 +1576,54 @@ Next:
 * Review diff.
 * Commit and push.
 * Ask the user to confirm the Netlify site auto-redeployed from the `main` branch push and that the previously-404ing routes now load correctly.
+
+### [2026-09-20] Update #029
+
+Status:
+Fixed
+
+Work Completed:
+
+User asked for a full section-by-section audit of every page to find and fix errors, and upgrade UI/content where it would help. Ran a systematic pass: captured every route (Home, About, Products overview, all 4 category pages, Brands, Blog, a blog article, Contact, 404) at desktop and mobile, with console-error and broken-image checks.
+
+**Result:** no console errors and no broken images on any route. Found one real, live bug:
+
+* **The custom 404 page still had Phase 1 placeholder copy**: "This route is ready for a polished custom error experience in later phases" — leftover text from the very first project-setup commit, never updated even though the project has been feature-complete since Phase 18. Replaced it with real, useful copy ("The page you're looking for doesn't exist or may have moved...") and added quick links to Products, About, Blog, and Contact alongside the existing "Return Home" button, so a lost visitor has more than one way back into the site.
+
+Also investigated two things that turned out not to be bugs, to close them out definitively:
+* Contact page addresses remain placeholders — confirmed the real markspeciality.com site has no working Contact page at all (searched its own homepage nav; no contact link exists there), so there is no real address to pull in. Left the existing, clearly-commented placeholder as-is.
+* Re-confirmed (a fourth time, across this and earlier updates) that homepage sections which appear empty in coarse automated scroll captures (Why Choose Us grid, Industries grid) render correctly for real users; this is purely a `whileInView`-vs-headless-scroll-speed testing artifact, not a product bug.
+
+Files Modified:
+
+* `AGENT.md`
+* `src/pages/NotFound.jsx`
+
+Files Created:
+
+* None
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None
+
+Reason:
+Directly implements the user's request for a full site audit with fixes and content upgrades where warranted.
+
+Testing:
+
+* `npm run lint` passed.
+* `npm run build` passed.
+* Playwright screenshots of all 11 routes plus the 404 page and mobile menu confirmed correct rendering; no console errors or broken images found anywhere.
+
+Git Commit:
+`pending`
+
+Next:
+
+* Review diff.
+* Commit and push.
