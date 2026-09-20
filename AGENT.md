@@ -1480,3 +1480,48 @@ Next:
 
 * Review diff.
 * Commit and push.
+
+### [2026-09-20] Update #027
+
+Status:
+Completed
+
+Work Completed:
+
+User asked to extract the real About page's content (not just images) and use it. Fetched the full visible text of `https://markspeciality.com/about-mark-speciality-industrial-lubricants-manufacturer-in-india/`. The real Vision and Mission sections are each several thousand words of repetitive, SEO-oriented marketing copy, far beyond what this project's own About-page requirements allow ("Do not create excessively long unreadable walls of text"). Rather than dumping the full essays, extracted the real site's own short lead paragraph for each (the part it shows before its own "Read more" expansion) and used those verbatim for `companyOverview.vision` and `companyOverview.mission`, and lightly adapted the real opening phrase for the "Who We Are" intro. Replaced all four Core Values descriptions with the real site's exact wording (each was already a single, appropriately short sentence, so no truncation was needed).
+
+Confirmed the real site's Core Values are the same four (Integrity, Excellence, Innovation, Sustainability) already used on this page since Phase 9 — only the wording changed, not the structure. The images already integrated in Update #022 (real lab photos for Vision/Mission, real product lineup for Manufacturing Capability) are the same ones used on the real page's Vision/Mission sections, so no new images were needed here.
+
+Files Modified:
+
+* `AGENT.md`
+* `src/data/about.js`
+
+Files Created:
+
+* None
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None
+
+Reason:
+Directly implements the user's request to use the real company's own content, balanced against the project's existing rule against long unreadable text blocks.
+
+Testing:
+
+* `npm run lint` passed.
+* `npm run build` passed.
+* Verified visually via Playwright screenshot: real copy renders correctly at appropriate paragraph lengths alongside the existing real photography.
+
+Git Commit:
+`pending`
+
+Next:
+
+* Review diff.
+* Commit and push.

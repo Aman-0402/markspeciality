@@ -12,15 +12,15 @@ import productLineupImageWebp from '../assets/images/about-product-lineup.webp';
 
 export const companyOverview = {
   intro:
-    'Mark Speciality India Pvt. Ltd. formulates and supplies lubricants for automotive, industrial, and specialty applications, helping businesses keep engines and equipment running reliably.',
+    'Mark Speciality India Pvt. Ltd. is a trusted Industrial Lubricants Manufacturer in India, dedicated to empowering businesses with advanced lubrication solutions that help machinery perform at its best while supporting sustainable industrial growth.',
   vision:
-    'To be a trusted name in lubrication technology, recognized for quality, innovation, and long-term partnerships across the industries we serve.',
+    'At Mark Speciality India Pvt. Ltd., we believe every successful industry is built on efficiency, reliability, and continuous innovation. Our vision is to empower businesses with advanced lubrication solutions that help machinery perform at its best while supporting sustainable industrial growth. As a trusted Industrial Lubricants Manufacturer in India, we are committed to creating long-term value for our customers by delivering products that combine outstanding performance and consistent quality.',
   visionImage,
   visionImageWebp,
   visionImageAlt:
     'Industrial lubricant testing laboratory with scientists performing quality control using chemical analysis equipment',
   mission:
-    'To deliver dependable, application-specific lubricant solutions backed by technical expertise, consistent quality, and responsive customer support.',
+    'At Mark Speciality India Pvt. Ltd., our mission goes beyond manufacturing industrial lubricants. We are committed to helping industries achieve greater efficiency, improved equipment performance, and long-term operational success through reliable, innovative, and high-quality lubrication solutions. Every product we create is designed to keep industrial machinery running smoothly while reducing downtime, lowering maintenance costs, and supporting sustainable business growth.',
   missionImage,
   missionImageWebp,
   missionImageAlt:
@@ -32,28 +32,28 @@ export const coreValues = [
     id: 'integrity',
     title: 'Integrity',
     description:
-      'Honest, transparent dealings with customers, partners, and employees guide every business decision.',
+      'As a reliable Industrial Lubricants Manufacturer in India, we foster trust through transparency, accountability, and ethical business practices in every interaction.',
     icon: ShieldCheck,
   },
   {
     id: 'excellence',
     title: 'Excellence',
     description:
-      'Consistent quality control and rigorous testing keep every batch performing to specification.',
+      'We are committed to delivering premium industrial lubricants, innovative solutions, and exceptional customer service while maintaining the highest standards of quality and performance.',
     icon: Award,
   },
   {
     id: 'innovation',
     title: 'Innovation',
     description:
-      'Ongoing formulation research keeps products aligned with evolving equipment and industry demands.',
+      'We continuously innovate our industrial lubricants and specialty lubrication solutions to deliver advanced performance, reliability, and value to our customers.',
     icon: Lightbulb,
   },
   {
     id: 'sustainability',
     title: 'Sustainability',
     description:
-      'Responsible sourcing and manufacturing practices help reduce environmental impact over time.',
+      'As a responsible Industrial Lubricants Manufacturer in India, we promote sustainable practices and environmentally conscious solutions that contribute to a cleaner and greener future.',
     icon: Leaf,
   },
 ];
