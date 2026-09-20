@@ -1627,3 +1627,55 @@ Next:
 
 * Review diff.
 * Commit and push.
+
+### [2026-09-20] Update #030
+
+Status:
+Completed
+
+Work Completed:
+
+User flagged the About page hero looking empty on the right on wide screens, then confirmed the same problem on Blog, Brands, and Contact (all five sub-page heroes — About/Products/Brands/Blog/Contact — share the same `.page-section--hero` pattern: text on the left, plain gradient background, nothing filling the right on wide viewports).
+
+Created a reusable `PageHeroMedia` component (background photo + left-to-right dark scrim, absolutely positioned behind the hero content) and added it to all five sub-page heroes, each with a distinct real photo for variety: About uses the real product-lineup photo, Products uses the industrial-lubricants photo, Brands uses the Vorstab Metal (CNC coolant) photo, Blog uses the homepage's industrial facility photo, and Contact uses the real lab photo. `ProductCategory` pages and the blog article page were left alone since they already have their own photo in the hero.
+
+First pass over-darkened the images (user reported "visibility... very low") because the scrim's `background` stacked two full dark gradients (a custom left-to-right fade plus the pre-existing `--gradient-hero` token) on top of each other. Fixed by removing the redundant second gradient and tuning the single remaining gradient's opacity stops (0.94 -> 0.05 left to right) so the image is clearly visible on the right two-thirds while text on the left stays fully legible.
+
+Files Created:
+
+* `src/components/common/PageHeroMedia.jsx`
+
+Files Modified:
+
+* `AGENT.md`
+* `src/components/about/AboutHero.jsx`
+* `src/pages/Blog.jsx`
+* `src/pages/Brands.jsx`
+* `src/pages/Contact.jsx`
+* `src/pages/Products.jsx`
+* `src/styles/components.css`
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None
+
+Reason:
+Directly implements the user's request to fix the empty right side of the sub-page heroes with a background image, applied consistently across all affected pages rather than one at a time.
+
+Testing:
+
+* `npm run lint` passed.
+* `npm run build` passed.
+* Verified visually via Playwright screenshots at 1900px width on About, Blog, and Brands: the background photo is clearly visible on the right, heading/eyebrow/lead text remain fully legible on the left.
+
+Git Commit:
+`pending`
+
+Next:
+
+* Review diff.
+* Commit and push.

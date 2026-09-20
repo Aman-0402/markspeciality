@@ -1,9 +1,12 @@
 import SEO from '../components/common/SEO.jsx';
 import SectionHeading from '../components/common/SectionHeading.jsx';
 import CTASection from '../components/common/CTASection.jsx';
+import PageHeroMedia from '../components/common/PageHeroMedia.jsx';
 import BrandCard from '../components/brands/BrandCard.jsx';
 import { brandFamilies, brands } from '../data/brands.js';
 import { buildBreadcrumbSchema } from '../utils/structuredData.js';
+import heroImage from '../assets/images/brand-vorstab-metal.png';
+import heroImageWebp from '../assets/images/brand-vorstab-metal.webp';
 
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Our Brands' }];
 
@@ -17,6 +20,7 @@ export default function Brands() {
         jsonLd={buildBreadcrumbSchema(breadcrumbItems)}
       />
       <section className="page-section page-section--hero">
+        <PageHeroMedia image={heroImage} imageWebp={heroImageWebp} />
         <div className="container">
           <p className="eyebrow">Our Brands</p>
           <h1>Two Brand Families, Four Specialized Lines</h1>

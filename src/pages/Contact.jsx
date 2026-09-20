@@ -1,9 +1,12 @@
 import { Clock, Headset, Mail, MapPin, Phone } from 'lucide-react';
 import SEO from '../components/common/SEO.jsx';
 import SectionHeading from '../components/common/SectionHeading.jsx';
+import PageHeroMedia from '../components/common/PageHeroMedia.jsx';
 import ContactForm from '../components/contact/ContactForm.jsx';
 import { contactInfo } from '../data/contact.js';
 import { buildBreadcrumbSchema } from '../utils/structuredData.js';
+import heroImage from '../assets/images/about-vision-lab.png';
+import heroImageWebp from '../assets/images/about-vision-lab.webp';
 
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Contact Us' }];
 
@@ -53,6 +56,7 @@ export default function Contact() {
         jsonLd={buildBreadcrumbSchema(breadcrumbItems)}
       />
       <section className="page-section page-section--hero">
+        <PageHeroMedia image={heroImage} imageWebp={heroImageWebp} />
         <div className="container">
           <p className="eyebrow">Get In Touch With Us</p>
           <h1>We're Here to Help With Your Lubrication Needs</h1>

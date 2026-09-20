@@ -1,8 +1,12 @@
 import { motion } from 'framer-motion';
+import PageHeroMedia from '../common/PageHeroMedia.jsx';
+import heroImage from '../../assets/images/about-product-lineup.png';
+import heroImageWebp from '../../assets/images/about-product-lineup.webp';
 
 export default function AboutHero() {
   return (
     <section className="page-section page-section--hero about-hero">
+      <PageHeroMedia image={heroImage} imageWebp={heroImageWebp} />
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
