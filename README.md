@@ -1,5 +1,7 @@
 # Mark Speciality React Website
 
+**Live site:** [https://markspeciality.netlify.app/](https://markspeciality.netlify.app/)
+
 ## Overview
 
 This project is a modern React implementation inspired by the structure and design direction of Mark Speciality India Pvt. Ltd.'s public website. The goal is to build a premium, responsive, accessible, and SEO-friendly industrial website for lubricant products and business enquiries.
@@ -157,12 +159,15 @@ Connect the GitHub repository, use the default Vite settings, and deploy with:
 * Build command: `npm run build`
 * Output directory: `dist`
 
-### Netlify
+### Netlify (currently deployed)
 
-Connect the GitHub repository or upload a production build with:
+The site is live at [markspeciality.netlify.app](https://markspeciality.netlify.app/), deployed from this repository's `main` branch. Configuration lives in `netlify.toml` at the repo root:
 
 * Build command: `npm run build`
 * Publish directory: `dist`
+* Node version: 22
+* SPA redirect: `/* -> /index.html` (200) so client-side routes like `/about` or `/products/grease` work on direct load/refresh, not just in-app navigation — without this, Netlify 404s any route besides `/`
+* Long-lived cache headers for hashed files under `/assets/*`
 
 ## Git Workflow
 

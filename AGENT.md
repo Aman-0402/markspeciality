@@ -1525,3 +1525,54 @@ Next:
 
 * Review diff.
 * Commit and push.
+
+### [2026-09-20] Update #028
+
+Status:
+Fixed
+
+Work Completed:
+
+User reported the site is deployed to Netlify at `https://markspeciality.netlify.app/` and asked to configure the deployment and check it for errors. Checked every route directly against the live URL with `curl` and found a critical, site-breaking issue: **every route except `/` returned Netlify's own default 404 page** (HTTP 404, confirmed by inspecting the response body — it was Netlify's generic "Page not found" HTML, not this app's `NotFound` component). This is the standard SPA-on-a-static-host problem: there was no `netlify.toml` or `_redirects` file in the repo, so Netlify has no instruction to serve `index.html` for client-side routes, and serves its own 404 for any path it doesn't have a matching static file for. In practice this meant: the homepage worked, but any direct link, bookmark, browser refresh, or shared URL to `/about`, `/products/...`, `/blog/...`, `/contact`, `/brands`, etc. was completely broken on the live site (in-app navigation via React Router still worked once the homepage had loaded, since that never triggers a real page request).
+
+Fixed by adding `netlify.toml` at the repo root with:
+* `[build]` block declaring the build command (`npm run build`) and publish directory (`dist`), matching what was likely already configured in the Netlify UI, now made explicit and version-controlled.
+* `NODE_VERSION = "22"` in `[build.environment]` to pin the build to the same Node major version used for local development (Vite 8 / this project's tooling assumes a modern Node).
+* A catch-all `[[redirects]]` rule (`/* -> /index.html`, status 200) — the actual fix for the 404 issue.
+* A long-lived `Cache-Control` header for `/assets/*` (Vite's hashed, immutable build output).
+
+Updated `README.md`: added the live site link at the top, and rewrote the Netlify section under Deployment to document the real, currently-deployed configuration and explain why the SPA redirect rule is necessary.
+
+Files Created:
+
+* `netlify.toml`
+
+Files Modified:
+
+* `AGENT.md`
+* `README.md`
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None
+
+Reason:
+The user asked to configure Netlify settings and check the live site for errors. Found and fixed a critical production bug: the site was unusable for any direct route other than the homepage.
+
+Testing:
+
+* `npm run build` passed.
+* Confirmed via `curl` that every non-root route on the live site (`/about`, `/products`, `/products/automotive-lubricants`, `/blog`, `/blog/choosing-the-right-engine-oil`, `/contact`, `/brands`, and an intentionally invalid path) currently returns HTTP 404 from Netlify's own not-found page. This will resolve once Netlify redeploys from `main` with `netlify.toml` present — that redeploy could not be triggered or verified from within this session (no Netlify CLI/API access here), so the user should confirm the fix live after the next deploy.
+
+Git Commit:
+`pending`
+
+Next:
+
+* Review diff.
+* Commit and push.
+* Ask the user to confirm the Netlify site auto-redeployed from the `main` branch push and that the previously-404ing routes now load correctly.
