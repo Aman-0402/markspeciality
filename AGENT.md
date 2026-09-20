@@ -1379,3 +1379,50 @@ Next:
 * Review diff.
 * Commit and push.
 * If the user still sees the issue after a hard refresh, ask for their exact browser/viewport and a fresh screenshot to investigate further.
+
+### [2026-09-20] Update #025
+
+Status:
+Fixed
+
+Work Completed:
+
+Found the real root cause of the brand-card spacing issue after the user sent a second, clearer screenshot. `--space-7` was used in `padding: var(--space-8) var(--space-7) var(--space-7)` on `.brand-showcase__body`, but `--space-7` was **never defined** in the design-token scale in `tokens.css` (the scale jumps `--space-6` -> `--space-8`). Per CSS spec, a `var()` reference to an undefined custom property is invalid at computed-value time, which invalidates the entire shorthand it appears in — so `.brand-showcase__body` was computing to `padding: 0` instead of `32px 28px 28px`, exactly matching the "title touching the image" symptom in both of the user's screenshots. This was not a caching issue as I'd assumed in Update #024.
+
+Grepped the whole `src/styles/` tree for every `--space-7` usage and found a second, pre-existing occurrence: `.expandable-section { padding: var(--space-7); }` in `about.css`, added back in Phase 9. That means the About page's "Quality Commitment" / "Customer Partnerships" / "Future Vision" cards have had zero padding since Phase 9 as well — a real, previously undetected bug, not just something introduced today.
+
+Fixed by adding the missing `--space-7: 1.75rem;` token to `tokens.css` (between the existing `--space-6: 1.5rem` and `--space-8: 2rem`), which resolves both usages at once without touching either component's CSS.
+
+Files Modified:
+
+* `AGENT.md`
+* `src/styles/tokens.css`
+
+Files Created:
+
+* None
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None
+
+Reason:
+Genuinely fix the brand-card layout bug the user reported twice, after the first response incorrectly attributed it to browser caching.
+
+Testing:
+
+* `npm run lint` passed.
+* `npm run build` passed.
+* Verified via Playwright: `.brand-showcase__body` padding now computes to `32px 28px 28px` (was `0px`) and `.expandable-section` padding now computes to `28px` (was `0px`). Screenshot confirms the brand card now matches the intended design with proper spacing between the image and the title.
+
+Git Commit:
+`pending`
+
+Next:
+
+* Review diff.
+* Commit and push.
