@@ -77,6 +77,17 @@
   );
 }
 
+@media (max-width: 900px) {
+  .page-hero-media__scrim {
+    background: linear-gradient(
+      180deg,
+      rgba(7, 20, 33, 0.88) 0%,
+      rgba(7, 20, 33, 0.82) 55%,
+      rgba(7, 20, 33, 0.9) 100%
+    );
+  }
+}
+
 .page-section--hero > .container {
   position: relative;
   z-index: 1;

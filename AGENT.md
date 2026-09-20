@@ -1679,3 +1679,50 @@ Next:
 
 * Review diff.
 * Commit and push.
+
+### [2026-09-20] Update #031
+
+Status:
+Fixed
+
+Work Completed:
+
+User asked for a mobile/responsive check across the site. Screenshotted every page at 320, 375, 390, 430, 768, and 1024px and found two real bugs:
+
+* **Sub-page hero text was unreadable on mobile/tablet.** The `PageHeroMedia` scrim added in Update #030 uses a left-to-right gradient (dark on the left where the text sits, fading to reveal the image on the right) designed for the wide desktop two-zone layout. On narrow screens the hero content isn't confined to a left column — it spans the full width and overlaps the photo everywhere, so the right portion of every line of text (and the whole lead paragraph) sat over the barely-darkened, busy part of the image and became hard to read. Fixed with a `@media (max-width: 900px)` override that switches the scrim to a uniform top-to-bottom dark overlay instead of the left-right fade, restoring full text legibility while still showing the photo.
+* **The product category "Category Overview" section didn't stack on mobile.** `.product-overview`'s `grid-template-columns: minmax(0,1fr) minmax(0,0.85fr)` rule was defined in `products.css` *after* the `@media (max-width: 900px) { .product-overview { grid-template-columns: 1fr; } }` override that was meant to collapse it to one column. Since both rules have identical specificity, CSS resolves the tie by source order, not by which one is inside a media query — so the later, unconditional two-column rule silently won even inside the media query's range, at every viewport including mobile. The visible result: at 375px the product photo rendered tiny in the left column with a huge empty gap on the right, and the "Category Overview" text also got squeezed into a narrow column instead of using the full width. This affected all four product category pages (they share the same template). Fixed by moving the mobile override block to after the base `.product-overview` rule so it correctly wins at narrow widths. Verified via computed style (`grid-template-columns` now correctly resolves to a single track at 375px) and confirmed visually that the photo now stacks full-width above the text.
+
+Files Modified:
+
+* `AGENT.md`
+* `src/styles/components.css`
+* `src/styles/products.css`
+
+Files Created:
+
+* None
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None
+
+Reason:
+Directly implements the user's request to check and fix mobile/responsive behavior. Both bugs were real, user-facing layout breakages, not testing artifacts.
+
+Testing:
+
+* `npm run lint` passed.
+* `npm run build` passed.
+* Verified via Playwright at 320/375/390/430/768/1024px: hero text is now fully legible against the background photo on every sub-page hero; the product category overview section now stacks to a single column with the photo full-width above the text, confirmed via both screenshot and a direct `getComputedStyle` check of `grid-template-columns`.
+
+Git Commit:
+`pending`
+
+Next:
+
+* Review diff.
+* Commit and push.

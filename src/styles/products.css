@@ -97,24 +97,6 @@
   object-fit: cover;
 }
 
-@media (max-width: 900px) {
-  .product-hero__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .product-hero__media {
-    order: -1;
-  }
-
-  .product-overview {
-    grid-template-columns: 1fr;
-  }
-
-  .product-overview__media {
-    order: -1;
-  }
-}
-
 .product-category .product-overview__features svg {
   color: var(--category-accent, var(--color-accent-strong));
 }
@@ -177,6 +159,24 @@
 .product-overview__features svg {
   flex-shrink: 0;
   color: var(--color-accent-strong);
+}
+
+@media (max-width: 900px) {
+  .product-hero__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-hero__media {
+    order: -1;
+  }
+
+  .product-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .product-overview__media {
+    order: -1;
+  }
 }
 
 .benefit-list {
