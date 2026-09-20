@@ -30,8 +30,9 @@
 .brand-showcase__media {
   position: relative;
   display: block;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   text-decoration: none;
 }
 
@@ -71,8 +72,9 @@
 
 .brand-showcase__body {
   display: grid;
+  align-content: start;
   gap: var(--space-3);
-  padding: var(--space-7);
+  padding: var(--space-8) var(--space-7) var(--space-7);
 }
 
 .brand-showcase__body h3 {

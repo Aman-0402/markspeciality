@@ -1329,9 +1329,53 @@ Testing:
 * Verified visually via Playwright screenshot: both brand family sections render correctly with real photos, family-specific accent colors, and working "View products" links.
 
 Git Commit:
+7af87a1
+
+Next:
+
+* Review diff.
+* Commit and push.
+
+### [2026-09-20] Update #024
+
+Status:
+Fixed
+
+Work Completed:
+
+User reported a screenshot showing brand card images cropped to a thin sliver with the title touching it directly, with no visible gap. Re-tested the exact pushed code (commit 7af87a1) with Playwright at 1450px, 1366px, 1280px, and 1024px viewports and could not reproduce the issue — images rendered fully with a clear gap between the image and the title at every size tested. Tightened `.brand-showcase__media` from a 16:10 to a 3:2 aspect ratio (shorter image, more of the card visible without scrolling) and increased the top padding in `.brand-showcase__body` as a safety margin regardless of the root cause. Most likely explanation for what the user saw: a stale browser cache or a `npm run dev` session still running from before the previous commit landed.
+
+Files Modified:
+
+* `AGENT.md`
+* `src/styles/brands.css`
+
+Files Created:
+
+* None
+
+Files Deleted:
+
+* None
+
+Dependencies Added:
+
+* None
+
+Reason:
+Address user-reported visual issue on the Brands page; could not reproduce a code-level bug, so applied a defensive layout tightening and documented the investigation.
+
+Testing:
+
+* `npm run lint` passed.
+* `npm run build` passed.
+* Playwright screenshots at 1450px, 1366px, 1280px, and 1024px confirmed correct rendering both before and after this change.
+
+Git Commit:
 `pending`
 
 Next:
 
 * Review diff.
 * Commit and push.
+* If the user still sees the issue after a hard refresh, ask for their exact browser/viewport and a fresh screenshot to investigate further.
